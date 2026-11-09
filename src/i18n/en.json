@@ -1,0 +1,615 @@
+{
+  "app": {
+    "name": "Make it easier",
+    "skipLink": "Skip navigation"
+  },
+  "topbar": {
+    "search": "Search folders or files",
+    "language": "Language"
+  },
+  "nav": {
+    "main": "Main navigation",
+    "documents": "Documents",
+    "all": "All",
+    "recent": "Recent",
+    "favorites": "Favorites",
+    "trash": "Deleted",
+    "tools": "Tools",
+    "images": "Images",
+    "imagesAll": "All images",
+    "pdfTools": "PDF tools",
+    "imageTools": "Image tools"
+  },
+  "library": {
+    "title": "Documents",
+    "root": "My files",
+    "emptyTitle": "You haven't added any documents yet",
+    "emptyHint": "Upload documents to start working with them",
+    "trashEmptyTitle": "Trash is empty",
+    "trashEmptyHint": "Deleted documents stay here until you delete them permanently",
+    "upload": "Upload",
+    "newFolder": "New folder",
+    "sort": "Sort",
+    "sortUpdated": "Modified",
+    "sortName": "Name",
+    "sortSize": "Size",
+    "folderName": "Folder name",
+    "create": "Create",
+    "rename": "Rename",
+    "renameTitle": "Rename",
+    "newName": "New name",
+    "save": "Save",
+    "cancel": "Cancel",
+    "move": "Move",
+    "moveTitle": "Move to",
+    "moveHere": "Move here",
+    "rootFolder": "My files",
+    "favorite": "Favorite {{name}}",
+    "unfavorite": "Unfavorite {{name}}",
+    "download": "Download {{name}}",
+    "delete": "Delete {{name}}",
+    "restore": "Restore {{name}}",
+    "deleteForever": "Delete {{name}} permanently",
+    "emptyTrash": "Empty trash",
+    "emptyTrashConfirm": "Permanently delete everything in the trash? This can't be undone.",
+    "deleteForeverConfirm": "Permanently delete \"{{name}}\"? This can't be undone.",
+    "confirm": "Delete permanently",
+    "selected_one": "{{count}} item selected",
+    "selected_other": "{{count}} items selected",
+    "selectAll": "Select all",
+    "selectItem": "Select {{name}}",
+    "clearSelection": "Clear selection",
+    "colName": "Name",
+    "colSize": "Size",
+    "colPages": "Pages",
+    "colModified": "Modified",
+    "noResults": "No results for \"{{q}}\"",
+    "emptyFolder": "This folder is empty",
+    "uploading": "Uploading {{done}}/{{total}}…",
+    "uploaded_one": "Added {{count}} file",
+    "uploaded_other": "Added {{count}} files",
+    "uploadFailed": "Couldn't add \"{{name}}\": {{reason}}",
+    "reasonInvalidPdf": "not a valid PDF or damaged",
+    "reasonQuota": "the browser is out of storage space; download results to your device",
+    "reasonUnknown": "unknown error",
+    "dropHere": "Drop files here to upload",
+    "breadcrumb": "Folder path",
+    "folderTrashed": "Moved folder \"{{name}}\" to trash",
+    "pages_one": "{{count}} page",
+    "pages_other": "{{count}} pages",
+    "openWithTools": "Tools",
+    "restoreAction": "Restore",
+    "deleteAction": "Delete",
+    "imagesRoot": "My images",
+    "imagesEmptyTitle": "You haven't added any images yet",
+    "imagesEmptyHint": "Upload images to resize, crop, convert and more",
+    "imagesMoved_one": "{{count}} image was added to the Images library.",
+    "imagesMoved_other": "{{count}} images were added to the Images library.",
+    "openImages": "Open Images library",
+    "reasonNotImage": "not an image (this library only accepts images)",
+    "preview": "Preview {{name}}",
+    "previewLoading": "Opening preview…",
+    "previewError": "This file could not be previewed.",
+    "previewNone": "No preview for this file type. You can still download it.",
+    "previewPage": "Page {{n}}",
+    "downloadShort": "Download",
+    "close": "Close"
+  },
+  "tools": {
+    "title": "Tools",
+    "intro": "Everything runs in your browser. Your files are never sent anywhere.",
+    "groups": {
+      "organize": "Organize pages",
+      "secure": "Protect and optimize",
+      "convert": "Convert",
+      "optimize": "Optimize",
+      "modify": "Edit",
+      "imgconvert": "Convert format",
+      "markup": "Annotate and sign"
+    },
+    "merge": {
+      "name": "Merge PDF",
+      "desc": "Combine several PDF files into one, in the order you choose.",
+      "action": "Merge PDF"
+    },
+    "split": {
+      "name": "Split PDF",
+      "desc": "Split one PDF into several files by page range or page by page.",
+      "action": "Split PDF"
+    },
+    "extract-pages": {
+      "name": "Extract pages",
+      "desc": "Pull the pages you choose into a new PDF.",
+      "action": "Extract"
+    },
+    "delete-pages": {
+      "name": "Delete pages",
+      "desc": "Remove one or more pages from a PDF.",
+      "action": "Delete pages"
+    },
+    "rotate-pages": {
+      "name": "Rotate pages",
+      "desc": "Rotate PDF pages to portrait or landscape.",
+      "action": "Rotate pages"
+    },
+    "organize-pages": {
+      "name": "Organize pages",
+      "desc": "Preview pages, drag to reorder, rotate or delete visually.",
+      "action": "Save new order"
+    },
+    "search": "Search tools",
+    "allGroups": "All tools",
+    "noMatch": "No matching tools.",
+    "protect": {
+      "name": "Protect with password",
+      "desc": "Set an open password on a PDF (AES-256 encryption).",
+      "action": "Set password"
+    },
+    "unlock": {
+      "name": "Unlock PDF",
+      "desc": "Remove the password from a PDF when you know it.",
+      "action": "Unlock"
+    },
+    "compress": {
+      "name": "Compress PDF",
+      "desc": "Reduce size by optimizing the file structure, with no quality loss.",
+      "action": "Compress PDF"
+    },
+    "crop-pages": {
+      "name": "Crop pages",
+      "desc": "Trim the margins of PDF pages in millimeters.",
+      "action": "Crop pages"
+    },
+    "page-numbers": {
+      "name": "Page numbers",
+      "desc": "Add page numbers to a PDF; choose position, size and style.",
+      "action": "Add page numbers"
+    },
+    "watermark": {
+      "name": "Add watermark",
+      "desc": "Stamp text or a faded image on PDF pages.",
+      "action": "Add watermark"
+    },
+    "images-to-pdf": {
+      "name": "Images to PDF",
+      "desc": "Combine several JPG/PNG images into one PDF, one image per page.",
+      "action": "Create PDF"
+    },
+    "text-to-pdf": {
+      "name": "TXT to PDF",
+      "desc": "Turn a text file into a PDF, keeping accented characters intact.",
+      "action": "Create PDF"
+    },
+    "pdf-to-images": {
+      "name": "PDF to images",
+      "desc": "Turn each PDF page into a PNG or JPG image, downloaded as a zip.",
+      "action": "Convert to images"
+    },
+    "imageTitle": "Image tools",
+    "image-resize": {
+      "name": "Resize image",
+      "desc": "Shrink or enlarge images by percentage or pixels.",
+      "action": "Resize"
+    },
+    "image-rotate": {
+      "name": "Rotate and flip image",
+      "desc": "Rotate 90°, 180°, 270° and flip horizontally or vertically.",
+      "action": "Rotate"
+    },
+    "image-crop": {
+      "name": "Crop image",
+      "desc": "Choose the area to keep with a draggable frame or pixel values.",
+      "action": "Crop"
+    },
+    "image-compress": {
+      "name": "Compress image",
+      "desc": "Reduce image size at the quality level you choose.",
+      "action": "Compress"
+    },
+    "image-convert": {
+      "name": "Convert image format",
+      "desc": "Convert images to PNG, JPG, WebP, TIFF or AVIF.",
+      "action": "Convert"
+    },
+    "image-enhance": {
+      "name": "Enhance image",
+      "desc": "Interpolated upscaling, sharpening and color balance (classic algorithms, no AI).",
+      "action": "Enhance"
+    },
+    "image-remove-bg": {
+      "name": "Remove background",
+      "desc": "Make a plain-color background transparent and export PNG.",
+      "action": "Remove background"
+    },
+    "image-erase": {
+      "name": "Erase object from image",
+      "desc": "Paint over an unwanted object; the area is filled from the surrounding colors.",
+      "action": "Erase painted area"
+    },
+    "image-to-png": {
+      "name": "Image to PNG",
+      "desc": "Convert any image to PNG, keeping full quality.",
+      "action": "Convert to PNG"
+    },
+    "image-to-jpg": {
+      "name": "Image to JPG",
+      "desc": "Convert an image to JPG; transparent areas become white.",
+      "action": "Convert to JPG"
+    },
+    "image-to-webp": {
+      "name": "Image to WebP",
+      "desc": "Convert an image to compact WebP, keeping transparency.",
+      "action": "Convert to WebP"
+    },
+    "image-to-tiff": {
+      "name": "Image to TIFF",
+      "desc": "Convert an image to uncompressed TIFF, keeping every pixel.",
+      "action": "Convert to TIFF"
+    },
+    "image-to-avif": {
+      "name": "Image to AVIF (HEIF substitute)",
+      "desc": "Convert an image to AVIF, from the HEIF family. Browsers have no free HEIF/HEVC encoder, so AVIF is used.",
+      "action": "Convert to AVIF"
+    },
+    "annotate": {
+      "name": "Annotate PDF",
+      "desc": "Draw, highlight, add notes, shapes and arrows on PDF pages.",
+      "action": "Save annotations"
+    },
+    "edit": {
+      "name": "Edit PDF",
+      "desc": "Add text, images, checkboxes, shapes and cover areas with white boxes.",
+      "action": "Save edits"
+    },
+    "sign": {
+      "name": "Sign PDF",
+      "desc": "Insert a signature (drawn, typed or image), initials, date and checkboxes.",
+      "action": "Save signed copy"
+    },
+    "redact": {
+      "name": "Redact (cover sensitive info)",
+      "desc": "Permanently cover areas with sensitive information. Pages with redactions become images, so the text underneath is no longer in the file.",
+      "action": "Apply redaction"
+    },
+    "repair": {
+      "name": "Repair PDF",
+      "desc": "Recover a PDF with mild structural damage (bad reference table, cut-off end) into a clean file.",
+      "action": "Repair PDF"
+    },
+    "ocr": {
+      "name": "Text recognition (OCR)",
+      "desc": "Turn a scanned PDF or a photo into a PDF with selectable, searchable text. Runs on your device.",
+      "action": "Recognize text"
+    },
+    "convert": {
+      "name": "Convert PDF",
+      "desc": "Choose a file and we suggest the formats it can be converted to.",
+      "action": "Convert"
+    },
+    "docx-to-pdf": {
+      "name": "Word to PDF",
+      "desc": "Convert a Word document (.docx) to PDF, keeping headings, paragraphs, lists and tables.",
+      "action": "Convert to PDF"
+    },
+    "xlsx-to-pdf": {
+      "name": "Excel to PDF",
+      "desc": "Convert an Excel workbook (.xlsx) to PDF, one table per sheet.",
+      "action": "Convert to PDF"
+    },
+    "pptx-to-pdf": {
+      "name": "PowerPoint to PDF",
+      "desc": "Convert a presentation (.pptx) to PDF, one page per slide.",
+      "action": "Convert to PDF"
+    },
+    "pdf-to-docx": {
+      "name": "PDF to Word",
+      "desc": "Turn PDF content into an editable Word document (headings, paragraphs, lists).",
+      "action": "Convert to Word"
+    },
+    "pdf-to-xlsx": {
+      "name": "PDF to Excel",
+      "desc": "Turn tables and text in a PDF into Excel spreadsheet cells.",
+      "action": "Convert to Excel"
+    },
+    "pdf-to-pptx": {
+      "name": "PDF to PowerPoint",
+      "desc": "Turn each PDF page into a slide, with the page text in the notes.",
+      "action": "Convert to PowerPoint"
+    }
+  },
+  "toolPage": {
+    "back": "All tools",
+    "resultName": "Result file name",
+    "resultNameHint": "Leave empty to use the default name",
+    "files": "Input files",
+    "filesCount": "{{count}} files selected",
+    "addFromDevice": "Add from device",
+    "addFromLibrary": "Add from library",
+    "dropHint": "or drop files here",
+    "noFiles": "No files selected.",
+    "needAtLeast_one": "Select at least {{count}} file to continue.",
+    "needAtLeast_other": "Select at least {{count}} files to continue.",
+    "tooMany": "Select at most {{count}} files.",
+    "largeWarning": "Some files are larger than 100 MB. Processing may be slow and memory-heavy; you can cancel at any time.",
+    "moveUp": "Move {{name}} up",
+    "moveDown": "Move {{name}} down",
+    "remove": "Remove {{name}}",
+    "running": "Processing… {{percent}}%",
+    "cancel": "Cancel",
+    "cancelled": "Cancelled. No file was created.",
+    "resultTitle": "Result",
+    "saveToLibrary": "Save to library",
+    "saved": "Saved to library",
+    "download": "Download",
+    "pickerTitle": "Choose from library",
+    "pickerEmpty": "No matching files in your library.",
+    "pickerAdd": "Add selected",
+    "close": "Close",
+    "pagesCount_one": "{{count}} page",
+    "pagesCount_other": "{{count}} pages",
+    "rejected": "Skipped {{count}} file(s) of the wrong type.",
+    "downloadAll": "Download all (.zip)",
+    "saveAll": "Save all to library",
+    "savedAll": "All saved",
+    "sizeDelta": "Size: {{before}} → {{after}} ({{percent}}% smaller)",
+    "paintFirst": "Paint over the area to erase first.",
+    "addSomething": "Add at least one item to the page first."
+  },
+  "errors": {
+    "encrypted": "One file is password protected. Unlock it first, then try again.",
+    "invalid-pdf": "One file isn't a valid PDF or is damaged. Remove it and try again.",
+    "wrong-password": "The password is wrong. No file was created.",
+    "invalid-options": "Some options are invalid. Check the fields above.",
+    "quota": "The browser is out of storage space. Download the result to your device.",
+    "unknown": "Something went wrong while processing. No file was created.",
+    "storageUnavailable": "Couldn't open browser storage. Try again outside a private window.",
+    "notFound": "This page doesn't exist.",
+    "notFoundTool": "This tool doesn't exist.",
+    "no-reduction": "This file is already optimized and can't get smaller, so no new file was created.",
+    "required": "Enter {{field}}.",
+    "mismatch": "The two passwords don't match. Enter the same password twice.",
+    "invalid-image": "An image file couldn't be read or isn't a JPG/PNG. Remove it and try again.",
+    "no-text": "No text was recognized in the file, so no new file was created. Try a sharper image or pick the right language.",
+    "invalid-office": "The Office file is damaged or isn't in the expected format. Try opening it in the original app and saving it again.",
+    "no-text-layer": "This PDF has no text layer (it may be a scan), so there is nothing to convert. Use Text recognition (OCR) first."
+  },
+  "common": {
+    "home": "Go to home"
+  },
+  "params": {
+    "ranges": {
+      "label": "Pages",
+      "hint": "Example: 1-3, 5, 8- (8- means page 8 to the end)",
+      "splitHint": "Each range becomes one file. Example: 1-3, 4-10",
+      "deleteHint": "Pages to delete. Example: 2, 4-5",
+      "allHint": "Leave empty to rotate all pages. Example: 1-3, 5",
+      "allCropHint": "Leave empty to crop all pages. Example: 1-3, 5",
+      "allNumberHint": "Leave empty to number all pages. Example: 2-10",
+      "allWatermarkHint": "Leave empty to apply to all pages. Example: 1-3"
+    },
+    "splitMode": {
+      "label": "Split by",
+      "ranges": "Page ranges",
+      "each": "One file per page"
+    },
+    "angle": {
+      "label": "Rotation",
+      "cw90": "90° clockwise",
+      "r180": "180°",
+      "ccw90": "90° counterclockwise",
+      "none": "No rotation"
+    },
+    "password": {
+      "label": "Password",
+      "confirm": "Repeat password",
+      "protectHint": "Remember this password: it can't be recovered if you forget it.",
+      "unlockHint": "The PDF's current password."
+    },
+    "margin": {
+      "top": "Crop top margin (mm)",
+      "right": "Crop right margin (mm)",
+      "bottom": "Crop bottom margin (mm)",
+      "left": "Crop left margin (mm)"
+    },
+    "position": {
+      "label": "Number position",
+      "bottom-center": "Bottom center",
+      "bottom-right": "Bottom right",
+      "bottom-left": "Bottom left",
+      "top-center": "Top center",
+      "top-right": "Top right",
+      "top-left": "Top left"
+    },
+    "numFormat": {
+      "label": "Style",
+      "n": "1, 2, 3…",
+      "nOfTotal": "1 / 10"
+    },
+    "numStart": "Start number",
+    "fontSize": "Font size",
+    "watermark": {
+      "text": "Watermark text",
+      "textHint": "Leave empty if you add a PNG/JPG image together with the PDF for an image watermark.",
+      "scale": "Image width (% of page width)",
+      "opacity": "Opacity (%)",
+      "angle": "Rotation (degrees)"
+    },
+    "pageSize": {
+      "label": "Page size",
+      "fit": "Fit the image",
+      "a4": "A4 (image centered on the page)"
+    },
+    "imageFormat": {
+      "label": "Image format",
+      "png": "PNG (lossless)",
+      "jpg": "JPG (smaller)",
+      "pngShort": "PNG",
+      "jpgShort": "JPG",
+      "webpShort": "WebP",
+      "tiffShort": "TIFF",
+      "avifShort": "AVIF"
+    },
+    "dpi": {
+      "label": "Resolution",
+      "72": "72 dpi (fast, small)",
+      "150": "150 dpi (balanced)",
+      "300": "300 dpi (sharp, large)"
+    },
+    "resize": {
+      "mode": "Resize by",
+      "percent": "Percentage",
+      "pixels": "Pixels",
+      "percentValue": "Percentage (%)",
+      "width": "Width (px)",
+      "height": "Height (px)",
+      "pixelsHint": "Used with \"Pixels\". Leave one box at 0 to calculate it from the aspect ratio.",
+      "keepAspect": "Keep aspect ratio"
+    },
+    "flip": {
+      "h": "Flip horizontally",
+      "v": "Flip vertically"
+    },
+    "quality": {
+      "label": "Quality (1–100)",
+      "hint": "Lower is smaller but loses quality. PNG reduces colors instead of quality.",
+      "convertHint": "Applies to JPG, WebP, AVIF. PNG and TIFF are lossless."
+    },
+    "enhance": {
+      "scale": "Upscale",
+      "x1": "Keep size",
+      "x2": "2×",
+      "x3": "3×",
+      "x4": "4×",
+      "sharpen": "Sharpness (0–100)",
+      "sharpenHint": "0 means no sharpening.",
+      "levels": "Auto color and contrast",
+      "levelsHint": "Stretches light and dark in each color channel."
+    },
+    "removeBg": {
+      "tolerance": "Color tolerance (1–100)",
+      "hint": "The background color is taken from the image edges. Raise it if background remains, lower it if the subject is cut away.",
+      "feather": "Soften edges"
+    },
+    "ocr": {
+      "language": "Language in the document",
+      "hint": "The first use downloads language data (~10 MB) and keeps it for offline use. Pick the right language for better accuracy.",
+      "vieEng": "Vietnamese and English",
+      "vie": "Vietnamese",
+      "eng": "English"
+    }
+  },
+  "editor": {
+    "pagesLeft_one": "{{count}} page left",
+    "pagesLeft_other": "{{count}} pages left",
+    "pageLabel": "Original page {{n}}",
+    "moveEarlier": "Move page {{n}} earlier",
+    "moveLater": "Move page {{n}} later",
+    "rotateLeft": "Rotate page {{n}} left",
+    "rotateRight": "Rotate page {{n}} right",
+    "remove": "Delete page {{n}}",
+    "hint": "Drag and drop, or use the buttons under each page to reorder, rotate or delete.",
+    "toolbar": "Page editing toolbar",
+    "color": "Color",
+    "width": "Stroke",
+    "undo": "Undo",
+    "redo": "Redo",
+    "delete": "Delete selected item",
+    "placeCenter": "Place at page center",
+    "pickImage": "Choose image…",
+    "changeSignature": "Change signature",
+    "content": "Content",
+    "fontSize": "Font size",
+    "fill": "Filled",
+    "checked": "Checked",
+    "defaultText": "Text",
+    "count_one": "{{count}} item added",
+    "count_other": "{{count}} items added",
+    "pageN": "Page {{n}}",
+    "initialsTitle": "Initials",
+    "initialsLabel": "Your initials",
+    "tools": {
+      "select": "Select and move",
+      "pen": "Draw",
+      "highlight": "Highlight",
+      "text": "Text",
+      "rect": "Rectangle",
+      "ellipse": "Ellipse",
+      "line": "Line",
+      "arrow": "Arrow",
+      "whiteout": "White box (cover area)",
+      "image": "Insert image",
+      "checkbox": "Checkbox",
+      "signature": "Signature",
+      "initials": "Initials",
+      "date": "Date",
+      "redact": "Redact area",
+      "editText": "Edit existing text"
+    },
+    "editSegment": "Edit text: {{text}}",
+    "hintEditText": "Hover a paragraph and click it to edit right there (Esc to close). Change font, size and color in the panel below. The original text is removed from the file and replaced in the same place. Click \"Apply changes\" to put them into the document and keep editing.",
+    "loadingText": "Reading the text on the page…",
+    "noText": "This page has no text to edit (it may be a scan). Use Text recognition (OCR) first.",
+    "restore": "Restore original text",
+    "clearText": "Delete this text",
+    "applyChanges": "Apply changes",
+    "discardChanges": "Discard changes",
+    "family": "Font family",
+    "families": {
+      "sans": "Sans-serif (like Arial, Helvetica)",
+      "serif": "Serif (like Times New Roman)",
+      "mono": "Monospace (like Courier)",
+      "dejavu": "DejaVu Sans (wide, many characters)"
+    },
+    "bold": "Bold",
+    "italic": "Italic",
+    "sourceFont": "Original font: {{name}}. New text uses an equivalent font with the same metrics.",
+    "properties": "Properties",
+    "align": "Alignment",
+    "align_left": "Align left",
+    "align_center": "Align center",
+    "align_right": "Align right"
+  },
+  "imageEditor": {
+    "preview": "Preview image",
+    "cropHint": "Drag the frame or its corners to choose the area to keep, or enter pixel values below.",
+    "cropX": "From left (px)",
+    "cropY": "From top (px)",
+    "cropWidth": "Width (px)",
+    "cropHeight": "Height (px)",
+    "maskHint": "Paint over the object you want to remove with the mouse or your finger. The red area is filled from the surrounding colors; works best for small objects on plain backgrounds.",
+    "maskCanvas": "Drawing area for painting the object to erase",
+    "brush": "Brush size: {{size}}",
+    "clearMask": "Clear painting"
+  },
+  "signature": {
+    "title": "Create signature",
+    "draw": "Draw",
+    "type": "Type",
+    "upload": "Upload image",
+    "drawArea": "Signature drawing area",
+    "clear": "Clear drawing",
+    "typeLabel": "Type your name",
+    "uploadLabel": "Signature image (PNG or JPG)",
+    "useSaved": "Use saved signature",
+    "remember": "Save the signature on this device for reuse",
+    "use": "Use signature",
+    "empty": "Draw, type or upload a signature first."
+  },
+  "convertHub": {
+    "convertTo": "Convert to",
+    "unsupported": "This file type is not supported yet.",
+    "kind": {
+      "pdf": "PDF",
+      "docx": "Word",
+      "xlsx": "Excel",
+      "pptx": "PowerPoint",
+      "image": "Image",
+      "text": "Text",
+      "unknown": "Unknown"
+    }
+  },
+  "warnings": {
+    "edit-cover-only": "In some places the original text could not be removed (for example text inside a pre-assembled block, so the new text is only placed on top). The old text is no longer visible but is still in the file and can be copied; use Redact if it must be removed completely.",
+    "font-fallback": "The font you picked lacks some characters, so DejaVu Sans was used for that text."
+  }
+}

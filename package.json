@@ -1,0 +1,153 @@
+{
+  "name": "make-it-easier",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "assets": "node scripts/copy-pdfjs-assets.mjs",
+    "predev": "npm run assets",
+    "prebuild": "npm run assets",
+    "test:pwa": "playwright test -c playwright.pwa.config.ts",
+    "test:all": "npm run typecheck && npm run lint && npm test && npm run test:e2e && npm run test:pwa",
+    "build:desktop": "node scripts/build-desktop.mjs",
+    "desktop:dev": "node scripts/desktop-dev.mjs",
+    "desktop": "npm run build:desktop && electron .",
+    "dist:linux": "npm run build:desktop && electron-builder --linux",
+    "dist:win": "npm run build:desktop && electron-builder --win",
+    "dist:mac": "npm run build:desktop && electron-builder --mac",
+    "test:desktop": "playwright test -c playwright.desktop.config.ts"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@eslint/js": "^10.0.1",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource/be-vietnam-pro": "^5.3.0",
+    "@fontsource/dancing-script": "^5.3.0",
+    "@jsquash/avif": "^2.1.1",
+    "@napi-rs/canvas": "^1.1.0",
+    "@neslinesli93/qpdf-wasm": "^0.3.1",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@playwright/test": "^1.65.0",
+    "@tailwindcss/vite": "^4.3.5",
+    "@tesseract.js-data/eng": "^1.0.0",
+    "@tesseract.js-data/vie": "^1.0.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@types/upng-js": "^2.1.5",
+    "@vitejs/plugin-react": "^6.3.0",
+    "dejavu-fonts-ttf": "^2.37.3",
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "fake-indexeddb": "^6.2.8",
+    "fast-xml-parser": "^5.12.0",
+    "fflate": "^0.8.3",
+    "globals": "^17.14.0",
+    "i18next": "^27.0.1",
+    "idb": "^8.0.4",
+    "jsdom": "^31.0.0",
+    "lucide-react": "^1.70.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.5.438",
+    "pptxgenjs": "^4.0.1",
+    "prettier": "^3.9.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^18.0.1",
+    "react-router-dom": "^7.18.5",
+    "tailwindcss": "^4.3.5",
+    "tesseract.js": "^7.0.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "upng-js": "^2.1.0",
+    "utif2": "^4.1.0",
+    "vite": "^8.3.7",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.1.0",
+    "workbox-build": "^7.4.1",
+    "workbox-window": "^7.4.1",
+    "zustand": "^5.1.0"
+  },
+  "overrides": {
+    "wasm-feature-detect": "1.8.0"
+  },
+  "main": "electron/main.mjs",
+  "description": "Make it easier — quản lý tài liệu và chỉnh sửa PDF, chạy hoàn toàn trên máy",
+  "author": "Make it easier",
+  "homepage": "https://example.invalid",
+  "build": {
+    "appId": "vn.makeiteasier.app",
+    "productName": "Make it easier",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "category": "Office",
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
+      "maintainer": "Make it easier <noreply@example.invalid>",
+      "syncDesktopName": true
+    }
+  },
+  "dependencies": {},
+  "desktopName": "make-it-easier.desktop"
+}

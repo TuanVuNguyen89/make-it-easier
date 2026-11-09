@@ -1,0 +1,615 @@
+{
+  "app": {
+    "name": "Make it easier",
+    "skipLink": "Bỏ qua điều hướng"
+  },
+  "topbar": {
+    "search": "Tìm kiếm thư mục hoặc tập tin",
+    "language": "Ngôn ngữ"
+  },
+  "nav": {
+    "main": "Điều hướng chính",
+    "documents": "Tài liệu",
+    "all": "Tất cả",
+    "recent": "Gần đây",
+    "favorites": "Yêu thích",
+    "trash": "Đã xóa",
+    "tools": "Công cụ",
+    "images": "Hình ảnh",
+    "imagesAll": "Tất cả ảnh",
+    "pdfTools": "Công cụ PDF",
+    "imageTools": "Công cụ ảnh"
+  },
+  "library": {
+    "title": "Tài liệu",
+    "root": "Các tập tin của tôi",
+    "emptyTitle": "Bạn chưa thêm tài liệu nào",
+    "emptyHint": "Tải tài liệu lên để bắt đầu làm việc với chúng",
+    "trashEmptyTitle": "Thùng rác trống",
+    "trashEmptyHint": "Tài liệu đã xóa sẽ nằm ở đây cho đến khi bạn xóa vĩnh viễn",
+    "upload": "Tải lên",
+    "newFolder": "Thư mục mới",
+    "sort": "Sắp xếp",
+    "sortUpdated": "Đã sửa đổi",
+    "sortName": "Tên",
+    "sortSize": "Dung lượng",
+    "folderName": "Tên thư mục",
+    "create": "Tạo",
+    "rename": "Đổi tên",
+    "renameTitle": "Đổi tên",
+    "newName": "Tên mới",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "move": "Di chuyển",
+    "moveTitle": "Di chuyển đến",
+    "moveHere": "Di chuyển vào đây",
+    "rootFolder": "Các tập tin của tôi",
+    "favorite": "Yêu thích {{name}}",
+    "unfavorite": "Bỏ yêu thích {{name}}",
+    "download": "Tải {{name}} về",
+    "delete": "Xóa {{name}}",
+    "restore": "Khôi phục {{name}}",
+    "deleteForever": "Xóa vĩnh viễn {{name}}",
+    "emptyTrash": "Dọn thùng rác",
+    "emptyTrashConfirm": "Xóa vĩnh viễn tất cả tài liệu trong thùng rác? Không thể hoàn tác.",
+    "deleteForeverConfirm": "Xóa vĩnh viễn \"{{name}}\"? Không thể hoàn tác.",
+    "confirm": "Xóa vĩnh viễn",
+    "selected_one": "Đã chọn {{count}} mục",
+    "selected_other": "Đã chọn {{count}} mục",
+    "selectAll": "Chọn tất cả",
+    "selectItem": "Chọn {{name}}",
+    "clearSelection": "Bỏ chọn",
+    "colName": "Tên",
+    "colSize": "Dung lượng",
+    "colPages": "Số trang",
+    "colModified": "Sửa đổi",
+    "noResults": "Không tìm thấy kết quả cho \"{{q}}\"",
+    "emptyFolder": "Thư mục này đang trống",
+    "uploading": "Đang tải lên {{done}}/{{total}}…",
+    "uploaded_one": "Đã thêm {{count}} tệp",
+    "uploaded_other": "Đã thêm {{count}} tệp",
+    "uploadFailed": "Không thêm được \"{{name}}\": {{reason}}",
+    "reasonInvalidPdf": "không phải PDF hợp lệ hoặc bị hỏng",
+    "reasonQuota": "trình duyệt hết dung lượng lưu trữ, hãy tải kết quả về máy",
+    "reasonUnknown": "lỗi không xác định",
+    "dropHere": "Thả tệp vào đây để tải lên",
+    "breadcrumb": "Đường dẫn thư mục",
+    "folderTrashed": "Đã chuyển thư mục \"{{name}}\" vào thùng rác",
+    "pages_one": "{{count}} trang",
+    "pages_other": "{{count}} trang",
+    "openWithTools": "Công cụ",
+    "restoreAction": "Khôi phục",
+    "deleteAction": "Xóa",
+    "imagesRoot": "Ảnh của tôi",
+    "imagesEmptyTitle": "Bạn chưa thêm hình ảnh nào",
+    "imagesEmptyHint": "Tải ảnh lên để thay đổi kích thước, cắt, chuyển định dạng và nhiều hơn nữa",
+    "imagesMoved_one": "{{count}} ảnh đã được thêm vào thư viện Hình ảnh.",
+    "imagesMoved_other": "{{count}} ảnh đã được thêm vào thư viện Hình ảnh.",
+    "openImages": "Mở thư viện Hình ảnh",
+    "reasonNotImage": "không phải ảnh (thư viện này chỉ nhận ảnh)",
+    "preview": "Xem trước {{name}}",
+    "previewLoading": "Đang mở bản xem trước…",
+    "previewError": "Không mở được bản xem trước của tệp này.",
+    "previewNone": "Loại tệp này chưa có bản xem trước. Bạn vẫn tải về được.",
+    "previewPage": "Trang {{n}}",
+    "downloadShort": "Tải về",
+    "close": "Đóng"
+  },
+  "tools": {
+    "title": "Công cụ",
+    "intro": "Mọi thao tác chạy ngay trong trình duyệt. Tập tin của bạn không bị gửi đi đâu.",
+    "groups": {
+      "organize": "Tổ chức trang",
+      "secure": "Bảo mật và tối ưu",
+      "convert": "Chuyển đổi",
+      "optimize": "Tối ưu hóa",
+      "modify": "Chỉnh sửa",
+      "imgconvert": "Đổi định dạng",
+      "markup": "Chú thích và ký"
+    },
+    "merge": {
+      "name": "Gộp PDF",
+      "desc": "Ghép nhiều tệp PDF thành một, theo thứ tự bạn chọn.",
+      "action": "Gộp PDF"
+    },
+    "split": {
+      "name": "Tách PDF",
+      "desc": "Tách một PDF thành nhiều tệp theo khoảng trang hoặc từng trang.",
+      "action": "Tách PDF"
+    },
+    "extract-pages": {
+      "name": "Trích xuất trang",
+      "desc": "Lấy các trang bạn chọn ra thành một PDF mới.",
+      "action": "Trích xuất"
+    },
+    "delete-pages": {
+      "name": "Xóa trang",
+      "desc": "Loại bỏ một hoặc nhiều trang khỏi PDF.",
+      "action": "Xóa trang"
+    },
+    "rotate-pages": {
+      "name": "Xoay trang",
+      "desc": "Xoay các trang PDF theo chiều dọc hoặc ngang.",
+      "action": "Xoay trang"
+    },
+    "organize-pages": {
+      "name": "Sắp xếp trang",
+      "desc": "Xem trước các trang, kéo thả đổi thứ tự, xoay hoặc xóa trực quan.",
+      "action": "Lưu thứ tự mới"
+    },
+    "search": "Tìm công cụ",
+    "allGroups": "Tất cả công cụ",
+    "noMatch": "Không có công cụ phù hợp.",
+    "protect": {
+      "name": "Bảo vệ bằng mật khẩu",
+      "desc": "Đặt mật khẩu mở cho PDF (mã hóa AES-256).",
+      "action": "Đặt mật khẩu"
+    },
+    "unlock": {
+      "name": "Mở khóa PDF",
+      "desc": "Gỡ mật khẩu khỏi PDF khi bạn biết mật khẩu.",
+      "action": "Mở khóa"
+    },
+    "compress": {
+      "name": "Nén PDF",
+      "desc": "Giảm dung lượng bằng cách tối ưu cấu trúc tệp, không làm giảm chất lượng.",
+      "action": "Nén PDF"
+    },
+    "crop-pages": {
+      "name": "Cắt trang",
+      "desc": "Cắt bớt lề của các trang PDF theo milimét.",
+      "action": "Cắt trang"
+    },
+    "page-numbers": {
+      "name": "Đánh số trang",
+      "desc": "Thêm số trang vào PDF, chọn vị trí, kích thước và cách hiển thị.",
+      "action": "Đánh số trang"
+    },
+    "watermark": {
+      "name": "Thêm hình mờ",
+      "desc": "Đóng dấu chữ hoặc ảnh mờ lên các trang PDF.",
+      "action": "Thêm hình mờ"
+    },
+    "images-to-pdf": {
+      "name": "Ảnh sang PDF",
+      "desc": "Ghép nhiều ảnh JPG/PNG thành một PDF, mỗi ảnh một trang.",
+      "action": "Tạo PDF"
+    },
+    "text-to-pdf": {
+      "name": "TXT sang PDF",
+      "desc": "Chuyển tệp văn bản thành PDF, giữ nguyên tiếng Việt có dấu.",
+      "action": "Tạo PDF"
+    },
+    "pdf-to-images": {
+      "name": "PDF sang ảnh",
+      "desc": "Chuyển mỗi trang PDF thành một ảnh PNG hoặc JPG, tải về dạng zip.",
+      "action": "Chuyển sang ảnh"
+    },
+    "imageTitle": "Công cụ ảnh",
+    "image-resize": {
+      "name": "Đổi kích thước ảnh",
+      "desc": "Thu nhỏ hoặc phóng to ảnh theo phần trăm hoặc theo pixel.",
+      "action": "Đổi kích thước"
+    },
+    "image-rotate": {
+      "name": "Xoay và lật ảnh",
+      "desc": "Xoay ảnh 90°, 180°, 270° và lật ngang hoặc dọc.",
+      "action": "Xoay ảnh"
+    },
+    "image-crop": {
+      "name": "Cắt ảnh",
+      "desc": "Chọn vùng cần giữ bằng khung kéo hoặc nhập số pixel.",
+      "action": "Cắt ảnh"
+    },
+    "image-compress": {
+      "name": "Nén ảnh",
+      "desc": "Giảm dung lượng ảnh theo mức chất lượng bạn chọn.",
+      "action": "Nén ảnh"
+    },
+    "image-convert": {
+      "name": "Đổi định dạng ảnh",
+      "desc": "Chuyển ảnh sang PNG, JPG, WebP, TIFF hoặc AVIF.",
+      "action": "Chuyển đổi"
+    },
+    "image-enhance": {
+      "name": "Tăng cường ảnh",
+      "desc": "Phóng to có nội suy, làm nét và cân bằng màu (thuật toán cổ điển, không dùng AI).",
+      "action": "Tăng cường"
+    },
+    "image-remove-bg": {
+      "name": "Xóa nền ảnh",
+      "desc": "Làm trong suốt nền đồng màu của ảnh, xuất PNG.",
+      "action": "Xóa nền"
+    },
+    "image-erase": {
+      "name": "Xóa đối tượng khỏi ảnh",
+      "desc": "Tô lên vật thể không mong muốn, vùng đó sẽ được vá bằng màu xung quanh.",
+      "action": "Xóa vùng đã tô"
+    },
+    "image-to-png": {
+      "name": "Ảnh sang PNG",
+      "desc": "Chuyển ảnh bất kỳ sang PNG, giữ nguyên chất lượng.",
+      "action": "Chuyển sang PNG"
+    },
+    "image-to-jpg": {
+      "name": "Ảnh sang JPG",
+      "desc": "Chuyển ảnh sang JPG; vùng trong suốt được thay bằng nền trắng.",
+      "action": "Chuyển sang JPG"
+    },
+    "image-to-webp": {
+      "name": "Ảnh sang WebP",
+      "desc": "Chuyển ảnh sang WebP gọn nhẹ, giữ được nền trong suốt.",
+      "action": "Chuyển sang WebP"
+    },
+    "image-to-tiff": {
+      "name": "Ảnh sang TIFF",
+      "desc": "Chuyển ảnh sang TIFF không nén, giữ nguyên điểm ảnh.",
+      "action": "Chuyển sang TIFF"
+    },
+    "image-to-avif": {
+      "name": "Ảnh sang AVIF (thay HEIF)",
+      "desc": "Chuyển ảnh sang AVIF, cùng họ HEIF. Trình duyệt không có bộ mã hóa HEIF/HEVC miễn phí nên dùng AVIF.",
+      "action": "Chuyển sang AVIF"
+    },
+    "annotate": {
+      "name": "Chú thích PDF",
+      "desc": "Vẽ tay, tô sáng, ghi chú, vẽ hình và mũi tên lên trang PDF.",
+      "action": "Lưu chú thích"
+    },
+    "edit": {
+      "name": "Chỉnh sửa PDF",
+      "desc": "Thêm chữ, ảnh, hộp kiểm, hình khối và xóa vùng bằng ô trắng.",
+      "action": "Lưu chỉnh sửa"
+    },
+    "sign": {
+      "name": "Ký PDF",
+      "desc": "Chèn chữ ký (vẽ, gõ hoặc ảnh), chữ viết tắt, ngày tháng và hộp kiểm.",
+      "action": "Lưu bản đã ký"
+    },
+    "redact": {
+      "name": "Biên tập (che thông tin nhạy cảm)",
+      "desc": "Che vĩnh viễn vùng chứa thông tin nhạy cảm. Trang có vùng che được chuyển thành ảnh nên chữ bên dưới không còn trong tệp.",
+      "action": "Áp dụng biên tập"
+    },
+    "repair": {
+      "name": "Sửa PDF",
+      "desc": "Khôi phục PDF lỗi cấu trúc nhẹ (bảng tham chiếu sai, tệp bị cắt đuôi) thành tệp sạch.",
+      "action": "Sửa PDF"
+    },
+    "ocr": {
+      "name": "Nhận dạng chữ (OCR)",
+      "desc": "Biến PDF quét hoặc ảnh chụp thành PDF có thể chọn và tìm chữ. Chạy ngay trên máy bạn.",
+      "action": "Nhận dạng chữ"
+    },
+    "convert": {
+      "name": "Chuyển đổi PDF",
+      "desc": "Chọn một tệp, chúng tôi gợi ý các định dạng có thể chuyển sang.",
+      "action": "Chuyển đổi"
+    },
+    "docx-to-pdf": {
+      "name": "Word sang PDF",
+      "desc": "Chuyển tài liệu Word (.docx) sang PDF, giữ tiêu đề, đoạn văn, danh sách và bảng.",
+      "action": "Chuyển sang PDF"
+    },
+    "xlsx-to-pdf": {
+      "name": "Excel sang PDF",
+      "desc": "Chuyển bảng tính Excel (.xlsx) sang PDF, mỗi trang tính thành một bảng.",
+      "action": "Chuyển sang PDF"
+    },
+    "pptx-to-pdf": {
+      "name": "PowerPoint sang PDF",
+      "desc": "Chuyển bài thuyết trình (.pptx) sang PDF, mỗi slide một trang.",
+      "action": "Chuyển sang PDF"
+    },
+    "pdf-to-docx": {
+      "name": "PDF sang Word",
+      "desc": "Chuyển nội dung PDF sang tài liệu Word có thể chỉnh sửa (tiêu đề, đoạn văn, danh sách).",
+      "action": "Chuyển sang Word"
+    },
+    "pdf-to-xlsx": {
+      "name": "PDF sang Excel",
+      "desc": "Chuyển bảng và chữ trong PDF thành các ô của bảng tính Excel.",
+      "action": "Chuyển sang Excel"
+    },
+    "pdf-to-pptx": {
+      "name": "PDF sang PowerPoint",
+      "desc": "Chuyển mỗi trang PDF thành một slide, kèm chữ trong phần ghi chú.",
+      "action": "Chuyển sang PowerPoint"
+    }
+  },
+  "toolPage": {
+    "back": "Tất cả công cụ",
+    "resultName": "Tên tệp kết quả",
+    "resultNameHint": "Để trống để dùng tên mặc định",
+    "files": "Tệp đầu vào",
+    "filesCount": "{{count}} tệp đã chọn",
+    "addFromDevice": "Thêm từ máy",
+    "addFromLibrary": "Thêm từ thư viện",
+    "dropHint": "hoặc kéo thả tệp vào đây",
+    "noFiles": "Chưa chọn tệp nào.",
+    "needAtLeast_one": "Cần chọn ít nhất {{count}} tệp để tiếp tục.",
+    "needAtLeast_other": "Cần chọn ít nhất {{count}} tệp để tiếp tục.",
+    "tooMany": "Chỉ chọn tối đa {{count}} tệp.",
+    "largeWarning": "Có tệp lớn hơn 100 MB. Xử lý có thể chậm và tốn bộ nhớ; bạn có thể hủy bất cứ lúc nào.",
+    "moveUp": "Chuyển {{name}} lên trên",
+    "moveDown": "Chuyển {{name}} xuống dưới",
+    "remove": "Bỏ {{name}}",
+    "running": "Đang xử lý… {{percent}}%",
+    "cancel": "Hủy",
+    "cancelled": "Đã hủy. Không có tệp nào được tạo.",
+    "resultTitle": "Kết quả",
+    "saveToLibrary": "Lưu vào thư viện",
+    "saved": "Đã lưu vào thư viện",
+    "download": "Tải về",
+    "pickerTitle": "Chọn từ thư viện",
+    "pickerEmpty": "Thư viện chưa có tệp phù hợp.",
+    "pickerAdd": "Thêm đã chọn",
+    "close": "Đóng",
+    "pagesCount_one": "{{count}} trang",
+    "pagesCount_other": "{{count}} trang",
+    "rejected": "Bỏ qua {{count}} tệp không đúng loại.",
+    "downloadAll": "Tải tất cả (.zip)",
+    "saveAll": "Lưu tất cả vào thư viện",
+    "savedAll": "Đã lưu tất cả",
+    "sizeDelta": "Dung lượng: {{before}} → {{after}} (giảm {{percent}}%)",
+    "paintFirst": "Hãy tô lên vùng cần xóa trước.",
+    "addSomething": "Hãy thêm ít nhất một thành phần lên trang trước."
+  },
+  "errors": {
+    "encrypted": "Một tệp được bảo vệ bằng mật khẩu. Hãy mở khóa tệp đó trước khi tiếp tục.",
+    "invalid-pdf": "Một tệp không phải PDF hợp lệ hoặc bị hỏng. Hãy bỏ tệp đó và thử lại.",
+    "wrong-password": "Mật khẩu không đúng. Chưa có tệp nào được tạo.",
+    "invalid-options": "Tùy chọn chưa hợp lệ. Hãy kiểm tra lại các trường phía trên.",
+    "quota": "Trình duyệt hết dung lượng lưu trữ. Hãy tải kết quả về máy.",
+    "unknown": "Đã xảy ra lỗi khi xử lý. Chưa có tệp nào được tạo.",
+    "storageUnavailable": "Không mở được kho lưu trữ của trình duyệt. Hãy thử ngoài chế độ riêng tư.",
+    "notFound": "Không tìm thấy trang này.",
+    "notFoundTool": "Không có công cụ này.",
+    "no-reduction": "Tệp đã được tối ưu, không giảm thêm được dung lượng nên không tạo tệp mới.",
+    "required": "Hãy nhập {{field}}.",
+    "mismatch": "Hai mật khẩu chưa khớp. Hãy nhập lại cho giống nhau.",
+    "invalid-image": "Một tệp ảnh không đọc được hoặc không đúng định dạng JPG/PNG. Hãy bỏ tệp đó và thử lại.",
+    "no-text": "Không nhận ra chữ nào trong tệp, nên không tạo tệp mới. Hãy thử ảnh rõ nét hơn hoặc chọn đúng ngôn ngữ.",
+    "invalid-office": "Tệp Office bị hỏng hoặc không đúng định dạng. Hãy mở thử bằng ứng dụng gốc rồi lưu lại.",
+    "no-text-layer": "PDF này không có lớp chữ (có thể là bản quét) nên không có gì để chuyển. Hãy dùng công cụ Nhận dạng chữ (OCR) trước."
+  },
+  "common": {
+    "home": "Về trang chủ"
+  },
+  "params": {
+    "ranges": {
+      "label": "Trang",
+      "hint": "Ví dụ: 1-3, 5, 8- (8- là từ trang 8 đến hết)",
+      "splitHint": "Mỗi khoảng thành một tệp. Ví dụ: 1-3, 4-10",
+      "deleteHint": "Các trang cần xóa. Ví dụ: 2, 4-5",
+      "allHint": "Để trống để xoay tất cả các trang. Ví dụ: 1-3, 5",
+      "allCropHint": "Để trống để cắt tất cả các trang. Ví dụ: 1-3, 5",
+      "allNumberHint": "Để trống để đánh số tất cả các trang. Ví dụ: 2-10",
+      "allWatermarkHint": "Để trống để áp dụng cho tất cả các trang. Ví dụ: 1-3"
+    },
+    "splitMode": {
+      "label": "Cách tách",
+      "ranges": "Theo khoảng trang",
+      "each": "Mỗi trang một tệp"
+    },
+    "angle": {
+      "label": "Góc xoay",
+      "cw90": "90° theo chiều kim đồng hồ",
+      "r180": "180°",
+      "ccw90": "90° ngược chiều kim đồng hồ",
+      "none": "Không xoay"
+    },
+    "password": {
+      "label": "Mật khẩu",
+      "confirm": "Nhập lại mật khẩu",
+      "protectHint": "Hãy ghi nhớ mật khẩu: không thể khôi phục nếu quên.",
+      "unlockHint": "Mật khẩu hiện tại của tệp PDF."
+    },
+    "margin": {
+      "top": "Cắt lề trên (mm)",
+      "right": "Cắt lề phải (mm)",
+      "bottom": "Cắt lề dưới (mm)",
+      "left": "Cắt lề trái (mm)"
+    },
+    "position": {
+      "label": "Vị trí số trang",
+      "bottom-center": "Giữa dưới",
+      "bottom-right": "Phải dưới",
+      "bottom-left": "Trái dưới",
+      "top-center": "Giữa trên",
+      "top-right": "Phải trên",
+      "top-left": "Trái trên"
+    },
+    "numFormat": {
+      "label": "Cách hiển thị",
+      "n": "1, 2, 3…",
+      "nOfTotal": "1 / 10"
+    },
+    "numStart": "Số bắt đầu",
+    "fontSize": "Cỡ chữ",
+    "watermark": {
+      "text": "Chữ hình mờ",
+      "textHint": "Bỏ trống nếu bạn thêm một ảnh PNG/JPG cùng với PDF để làm hình mờ ảnh.",
+      "scale": "Độ rộng ảnh (% chiều rộng trang)",
+      "opacity": "Độ đậm (%)",
+      "angle": "Góc xoay (độ)"
+    },
+    "pageSize": {
+      "label": "Khổ trang",
+      "fit": "Vừa khít ảnh",
+      "a4": "A4 (ảnh nằm giữa trang)"
+    },
+    "imageFormat": {
+      "label": "Định dạng ảnh",
+      "png": "PNG (không mất chất lượng)",
+      "jpg": "JPG (nhẹ hơn)",
+      "pngShort": "PNG",
+      "jpgShort": "JPG",
+      "webpShort": "WebP",
+      "tiffShort": "TIFF",
+      "avifShort": "AVIF"
+    },
+    "dpi": {
+      "label": "Độ phân giải",
+      "72": "72 dpi (nhanh, nhẹ)",
+      "150": "150 dpi (cân bằng)",
+      "300": "300 dpi (sắc nét, nặng)"
+    },
+    "resize": {
+      "mode": "Cách đổi kích thước",
+      "percent": "Theo phần trăm",
+      "pixels": "Theo pixel",
+      "percentValue": "Phần trăm (%)",
+      "width": "Chiều rộng (px)",
+      "height": "Chiều cao (px)",
+      "pixelsHint": "Dùng khi chọn \"Theo pixel\". Để 0 ở một ô để tự tính theo tỉ lệ.",
+      "keepAspect": "Giữ tỉ lệ ảnh"
+    },
+    "flip": {
+      "h": "Lật ngang",
+      "v": "Lật dọc"
+    },
+    "quality": {
+      "label": "Chất lượng (1–100)",
+      "hint": "Thấp hơn thì nhẹ hơn nhưng giảm chất lượng. PNG giảm số màu thay vì chất lượng.",
+      "convertHint": "Áp dụng cho JPG, WebP, AVIF. PNG và TIFF không mất dữ liệu."
+    },
+    "enhance": {
+      "scale": "Phóng to",
+      "x1": "Giữ kích thước",
+      "x2": "Gấp 2",
+      "x3": "Gấp 3",
+      "x4": "Gấp 4",
+      "sharpen": "Độ nét (0–100)",
+      "sharpenHint": "0 là không làm nét.",
+      "levels": "Tự cân bằng màu và tương phản",
+      "levelsHint": "Kéo giãn sáng tối từng kênh màu."
+    },
+    "removeBg": {
+      "tolerance": "Độ lệch màu cho phép (1–100)",
+      "hint": "Màu nền được lấy từ mép ảnh. Tăng giá trị nếu nền còn sót, giảm nếu chủ thể bị mất.",
+      "feather": "Làm mềm viền"
+    },
+    "ocr": {
+      "language": "Ngôn ngữ trong tài liệu",
+      "hint": "Lần đầu dùng sẽ tải dữ liệu ngôn ngữ (~10 MB) và lưu lại để dùng offline. Chọn đúng ngôn ngữ để kết quả chính xác hơn.",
+      "vieEng": "Tiếng Việt và tiếng Anh",
+      "vie": "Tiếng Việt",
+      "eng": "Tiếng Anh"
+    }
+  },
+  "editor": {
+    "pagesLeft_one": "Còn {{count}} trang",
+    "pagesLeft_other": "Còn {{count}} trang",
+    "pageLabel": "Trang gốc {{n}}",
+    "moveEarlier": "Chuyển trang {{n}} lên trước",
+    "moveLater": "Chuyển trang {{n}} ra sau",
+    "rotateLeft": "Xoay trái trang {{n}}",
+    "rotateRight": "Xoay phải trang {{n}}",
+    "remove": "Xóa trang {{n}}",
+    "hint": "Kéo thả hoặc dùng các nút dưới mỗi trang để sắp xếp, xoay, xóa.",
+    "toolbar": "Thanh công cụ chỉnh sửa trang",
+    "color": "Màu",
+    "width": "Nét",
+    "undo": "Hoàn tác",
+    "redo": "Làm lại",
+    "delete": "Xóa thành phần đã chọn",
+    "placeCenter": "Đặt vào giữa trang",
+    "pickImage": "Chọn ảnh…",
+    "changeSignature": "Đổi chữ ký",
+    "content": "Nội dung",
+    "fontSize": "Cỡ chữ",
+    "fill": "Tô đặc",
+    "checked": "Đã chọn",
+    "defaultText": "Văn bản",
+    "count_one": "{{count}} thành phần đã thêm",
+    "count_other": "{{count}} thành phần đã thêm",
+    "pageN": "Trang {{n}}",
+    "initialsTitle": "Chữ viết tắt",
+    "initialsLabel": "Chữ viết tắt của bạn",
+    "tools": {
+      "select": "Chọn và di chuyển",
+      "pen": "Vẽ tay",
+      "highlight": "Tô sáng",
+      "text": "Văn bản",
+      "rect": "Hình chữ nhật",
+      "ellipse": "Hình elip",
+      "line": "Đường thẳng",
+      "arrow": "Mũi tên",
+      "whiteout": "Ô trắng (che vùng)",
+      "image": "Chèn ảnh",
+      "checkbox": "Hộp kiểm",
+      "signature": "Chữ ký",
+      "initials": "Chữ viết tắt",
+      "date": "Ngày tháng",
+      "redact": "Che thông tin (biên tập)",
+      "editText": "Sửa chữ có sẵn"
+    },
+    "editSegment": "Sửa chữ: {{text}}",
+    "hintEditText": "Rê chuột lên đoạn văn rồi bấm vào để sửa ngay tại chỗ (Esc để đóng). Đổi phông, cỡ chữ, màu ở bảng bên dưới. Chữ gốc được xóa khỏi tệp và thay bằng chữ mới ở đúng vị trí cũ. Bấm \"Áp dụng thay đổi\" để đưa vào tài liệu và tiếp tục sửa.",
+    "loadingText": "Đang đọc chữ trên trang…",
+    "noText": "Trang không có chữ để sửa (có thể là bản quét). Hãy dùng công cụ Nhận dạng chữ (OCR) trước.",
+    "restore": "Khôi phục chữ gốc",
+    "clearText": "Xóa chữ này",
+    "applyChanges": "Áp dụng thay đổi",
+    "discardChanges": "Hủy bỏ thay đổi",
+    "family": "Họ phông",
+    "families": {
+      "sans": "Không chân (như Arial, Helvetica)",
+      "serif": "Có chân (như Times New Roman)",
+      "mono": "Đơn cách (như Courier)",
+      "dejavu": "DejaVu Sans (rộng, đủ ký tự)"
+    },
+    "bold": "Đậm",
+    "italic": "Nghiêng",
+    "sourceFont": "Phông gốc: {{name}}. Chữ mới dùng phông tương đương có cùng số đo.",
+    "properties": "Thuộc tính",
+    "align": "Căn lề",
+    "align_left": "Căn trái",
+    "align_center": "Căn giữa",
+    "align_right": "Căn phải"
+  },
+  "imageEditor": {
+    "preview": "Ảnh xem trước",
+    "cropHint": "Kéo khung hoặc các góc để chọn vùng giữ lại, hoặc nhập số pixel bên dưới.",
+    "cropX": "Cách trái (px)",
+    "cropY": "Cách trên (px)",
+    "cropWidth": "Rộng (px)",
+    "cropHeight": "Cao (px)",
+    "maskHint": "Tô lên vật thể muốn xóa bằng chuột hoặc ngón tay. Vùng đỏ sẽ được vá bằng màu xung quanh; hiệu quả nhất với vật nhỏ trên nền ít chi tiết.",
+    "maskCanvas": "Vùng vẽ để tô đối tượng cần xóa",
+    "brush": "Cỡ cọ: {{size}}",
+    "clearMask": "Xóa vùng tô"
+  },
+  "signature": {
+    "title": "Tạo chữ ký",
+    "draw": "Vẽ",
+    "type": "Gõ",
+    "upload": "Tải ảnh",
+    "drawArea": "Vùng vẽ chữ ký",
+    "clear": "Xóa nét vẽ",
+    "typeLabel": "Gõ tên của bạn",
+    "uploadLabel": "Ảnh chữ ký (PNG hoặc JPG)",
+    "useSaved": "Dùng chữ ký đã lưu",
+    "remember": "Lưu chữ ký trên thiết bị này để dùng lại",
+    "use": "Dùng chữ ký",
+    "empty": "Hãy vẽ, gõ hoặc tải lên chữ ký trước."
+  },
+  "convertHub": {
+    "convertTo": "Chuyển sang",
+    "unsupported": "Chưa hỗ trợ chuyển đổi loại tệp này.",
+    "kind": {
+      "pdf": "PDF",
+      "docx": "Word",
+      "xlsx": "Excel",
+      "pptx": "PowerPoint",
+      "image": "Ảnh",
+      "text": "Văn bản",
+      "unknown": "Không xác định"
+    }
+  },
+  "warnings": {
+    "edit-cover-only": "Ở một số chỗ không xóa được chữ gốc (ví dụ chữ nằm trong khối ghép sẵn nên chỉ phủ chữ mới lên). Chữ cũ không còn nhìn thấy nhưng vẫn còn trong tệp và có thể sao chép; dùng công cụ Biên tập nếu cần xóa hẳn.",
+    "font-fallback": "Phông bạn chọn thiếu một số ký tự nên đã dùng DejaVu Sans cho đoạn đó."
+  }
+}
