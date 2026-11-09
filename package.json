@@ -20,9 +20,9 @@
     "build:desktop": "node scripts/build-desktop.mjs",
     "desktop:dev": "node scripts/desktop-dev.mjs",
     "desktop": "npm run build:desktop && electron .",
-    "dist:linux": "npm run build:desktop && electron-builder --linux",
-    "dist:win": "npm run build:desktop && electron-builder --win",
-    "dist:mac": "npm run build:desktop && electron-builder --mac",
+    "dist:linux": "npm run build:desktop && electron-builder --linux --publish never",
+    "dist:win": "npm run build:desktop && electron-builder --win --publish never",
+    "dist:mac": "npm run build:desktop && electron-builder --mac --publish never",
     "test:desktop": "playwright test -c playwright.desktop.config.ts"
   },
   "devDependencies": {
