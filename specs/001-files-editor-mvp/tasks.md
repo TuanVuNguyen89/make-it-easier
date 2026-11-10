@@ -109,6 +109,9 @@
 - [x] T068 Đóng gói Electron cho macOS/Windows/Linux: `electron/` (main, preload, kho SQLite), giao thức `app://` phục vụ bản dựng, cửa sổ cô lập (contextIsolation, sandbox), một cửa sổ duy nhất
 - [x] T069 Kho dữ liệu dùng chung giao diện `LibraryStore`: IndexedDB (web) và SQLite + tệp thật (app, qua IPC) + test (repository chạy trên SQLite, mở lại vẫn còn, chặn id tệp bất hợp lệ)
 - [x] T070 electron-builder (dmg/zip, nsis/portable, AppImage/deb/rpm), workflow GitHub Actions dựng cả ba hệ điều hành, E2E Electron thật (cả bản đã đóng gói)
+- [x] T071 [US7] OCR tiếng Đức (`deu`, `deu+eng`): dữ liệu tự host, tùy chọn, bản dịch + test nhận dạng ä ö ü ß
+- [x] T072 Trang Cài đặt: phiên bản, kiểm tra/nâng cấp bản mới trong app (electron-updater qua GitHub Releases; macOS mở trang tải), thư mục dữ liệu + test với máy chủ cập nhật giả
+- [x] T073 Tải tệp từ máy: báo lỗi đọc tệp rõ ràng, app máy tính bỏ phép đo quota của trình duyệt, tên gói không có dấu cách
 
 ### Hoàn thiện
 - [x] T058 Cập nhật README, a11y/responsive/offline cho các trang mới, chạy `npm run test:all`

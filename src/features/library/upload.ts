@@ -8,7 +8,7 @@ export interface UploadResult {
   added: number
   /** Số ảnh trong số đã thêm (ảnh nằm ở thư viện Hình ảnh). */
   images: number
-  failed: { name: string; reason: UploadReason }[]
+  failed: { name: string; reason: UploadReason; detail?: string }[]
 }
 
 async function bytesOf(file: File): Promise<Uint8Array> {
@@ -23,6 +23,8 @@ async function bytesOf(file: File): Promise<Uint8Array> {
 
 /** Còn đủ chỗ trong kho lưu trữ của trình duyệt cho `bytes` không? Không đo được thì coi là đủ. */
 async function hasRoom(bytes: number): Promise<boolean> {
+  // App máy tính lưu ra ổ đĩa, không dùng kho của trình duyệt: số đo quota của Chromium ở đây không có ý nghĩa.
+  if (typeof window !== 'undefined' && window.desktop) return true
   try {
     const { quota, usage } = (await navigator.storage?.estimate?.()) ?? {}
     return quota == null || usage == null || quota - usage > bytes
@@ -60,7 +62,7 @@ export async function uploadFiles(
       result.added++
       if (mime.startsWith('image/')) result.images++
     } catch (e) {
-      result.failed.push({ name: file.name, reason: e instanceof StorageQuotaError ? 'quota' : 'unknown' })
+      result.failed.push({ name: file.name, reason: e instanceof StorageQuotaError ? 'quota' : 'unknown', detail: e instanceof Error ? `${e.name}: ${e.message}` : String(e) })
     } finally {
       onProgress?.(++done, files.length)
     }

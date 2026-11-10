@@ -1,6 +1,6 @@
 import { Outlet, NavLink, useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { Clock, FileText, Image as ImageIcon, ImagePlus, Search, Star, Trash2, Wrench } from 'lucide-react'
+import { Clock, FileText, Image as ImageIcon, ImagePlus, Search, Settings, Star, Trash2, Wrench } from 'lucide-react'
 import { LANGS, type Lang } from '@/i18n'
 
 const links = [
@@ -110,6 +110,10 @@ function Sidebar() {
       <NavLink to="/tools/images" className="nav-link hidden sm:flex sm:!gap-3 sm:text-base">
         <ImagePlus aria-hidden size={20} />
         {t('nav.imageTools')}
+      </NavLink>
+      <NavLink to="/settings" className="nav-link flex-col !gap-0 text-[13px] sm:mt-4 sm:flex-row sm:!gap-3 sm:text-base">
+        <Settings aria-hidden size={20} />
+        {t('nav.settings')}
       </NavLink>
     </nav>
   )

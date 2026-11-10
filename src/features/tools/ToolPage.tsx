@@ -127,12 +127,25 @@ function ToolForm({ tool }: { tool: ToolMeta }) {
   const addDeviceFiles = async (list: FileList | File[]) => {
     const all = [...list]
     const ok = all.filter((f) => inputs.extensions.includes(extOf(f.name).toLowerCase()))
-    const items = await Promise.all(
-      ok.map(async (f) => ({ key: nextKey(), name: f.name, bytes: new Uint8Array(await f.arrayBuffer()) })),
-    )
+    // Đọc từng tệp riêng: tệp không đọc được (đang bị khóa, ở ổ mạng/đám mây chưa tải) được báo rõ thay vì im lặng.
+    const items: FileItem[] = []
+    const unreadable: string[] = []
+    for (const f of ok) {
+      try {
+        items.push({ key: nextKey(), name: f.name, bytes: new Uint8Array(await f.arrayBuffer()) })
+      } catch (e) {
+        unreadable.push(`${f.name} (${e instanceof Error ? e.message : String(e)})`)
+      }
+    }
     setFiles((prev) => [...prev, ...items])
     const rejected = all.length - ok.length
-    setMessage(rejected ? { kind: 'info', text: t('toolPage.rejected', { count: rejected }) } : null)
+    setMessage(
+      unreadable.length
+        ? { kind: 'error', text: t('toolPage.unreadable', { files: unreadable.join(', ') }) }
+        : rejected
+          ? { kind: 'info', text: t('toolPage.rejected', { count: rejected }) }
+          : null,
+    )
   }
 
   const addLibraryFiles = async (ids: string[]) => {

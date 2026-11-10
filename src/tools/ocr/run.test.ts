@@ -53,6 +53,15 @@ describe('ocr', () => {
     expect(text).toContain('việt') // dấu thanh và dấu mũ được giữ
   }, 60_000)
 
+  it('ảnh tiếng Đức có ä ö ü ß được nhận dạng', async () => {
+    const img = textImage(['Größe Straße Müller', 'Schöne Grüße aus Köln'])
+    const [out] = await run([img.bytes], { language: 'deu' }, ctx())
+    const text = (await words(out!.data))[0]!
+    const hit = ['größe', 'straße', 'müller', 'schöne', 'grüße', 'aus', 'köln'].filter((w) => text.includes(w))
+    expect(hit.length, `nhận được: ${text}`).toBeGreaterThanOrEqual(6)
+    expect(text).toMatch(/[äöüß]/) // dấu của tiếng Đức được giữ
+  }, 60_000)
+
   it('PDF quét (trang chỉ là ảnh): giữ nguyên số trang và hình, thêm lớp chữ tìm kiếm được', async () => {
     const img = textImage(['Scanned page one'])
     const src = await PDFDocument.create()

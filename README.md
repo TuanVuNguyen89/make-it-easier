@@ -106,3 +106,7 @@ npm run test:desktop    # E2E Electron thật (cần màn hình); MIE_PACKAGED=<
 ```
 
 Mỗi hệ điều hành nên dựng trên chính nó; workflow `.github/workflows/desktop.yml` dựng cả ba (chạy tay hoặc khi gắn tag `v*`) và đưa gói lên artifact. Bản dựng chưa ký số: macOS sẽ hỏi xác nhận lần đầu (chuột phải → Mở) và Windows SmartScreen có thể cảnh báo; muốn bỏ cảnh báo cần chứng chỉ ký của bạn (xem tài liệu electron-builder về `CSC_LINK`). SQLite dùng mô-đun `node:sqlite` có sẵn trong Electron nên không phải biên dịch mô-đun gốc theo từng nền tảng. Dữ liệu đã lưu ở bản web (IndexedDB của trình duyệt) không tự chuyển sang app; tải về từ web rồi thêm vào app.
+
+### Cập nhật phiên bản trong app
+
+Vào **Cài đặt** → *Kiểm tra bản mới*; app cũng tự kiểm tra một lần sau khi mở. Có bản mới thì bấm *Nâng cấp*: app tải về, rồi *Khởi động lại và cài đặt* (Windows và Linux AppImage). Trên macOS (chưa ký số) nút mở trang tải về để bạn thay app thủ công. Bản cập nhật lấy từ GitHub Releases của repo `TuanVuNguyen89/make-it-easier`, **repo phải công khai** (hoặc đặt bản phát hành ở một repo công khai khác) thì người dùng mới tải được. Mỗi lần phát hành: tăng `version` trong `package.json`, commit, `git tag vX.Y.Z && git push origin vX.Y.Z`; workflow dựng gói và các tệp `latest*.yml` mà app dùng để biết có bản mới. `.deb`/`.rpm` cập nhật qua trình quản lý gói của hệ điều hành hoặc tải gói mới.

@@ -18,7 +18,8 @@
     "images": "Hình ảnh",
     "imagesAll": "Tất cả ảnh",
     "pdfTools": "Công cụ PDF",
-    "imageTools": "Công cụ ảnh"
+    "imageTools": "Công cụ ảnh",
+    "settings": "Cài đặt"
   },
   "library": {
     "title": "Tài liệu",
@@ -353,7 +354,8 @@
     "savedAll": "Đã lưu tất cả",
     "sizeDelta": "Dung lượng: {{before}} → {{after}} (giảm {{percent}}%)",
     "paintFirst": "Hãy tô lên vùng cần xóa trước.",
-    "addSomething": "Hãy thêm ít nhất một thành phần lên trang trước."
+    "addSomething": "Hãy thêm ít nhất một thành phần lên trang trước.",
+    "unreadable": "Không đọc được tệp: {{files}}. Hãy đóng ứng dụng đang mở tệp đó hoặc chép tệp ra thư mục trên máy rồi thử lại."
   },
   "errors": {
     "encrypted": "Một tệp được bảo vệ bằng mật khẩu. Hãy mở khóa tệp đó trước khi tiếp tục.",
@@ -495,7 +497,9 @@
       "hint": "Lần đầu dùng sẽ tải dữ liệu ngôn ngữ (~10 MB) và lưu lại để dùng offline. Chọn đúng ngôn ngữ để kết quả chính xác hơn.",
       "vieEng": "Tiếng Việt và tiếng Anh",
       "vie": "Tiếng Việt",
-      "eng": "Tiếng Anh"
+      "eng": "Tiếng Anh",
+      "deuEng": "Tiếng Đức và tiếng Anh",
+      "deu": "Tiếng Đức"
     }
   },
   "editor": {
@@ -611,5 +615,27 @@
   "warnings": {
     "edit-cover-only": "Ở một số chỗ không xóa được chữ gốc (ví dụ chữ nằm trong khối ghép sẵn nên chỉ phủ chữ mới lên). Chữ cũ không còn nhìn thấy nhưng vẫn còn trong tệp và có thể sao chép; dùng công cụ Biên tập nếu cần xóa hẳn.",
     "font-fallback": "Phông bạn chọn thiếu một số ký tự nên đã dùng DejaVu Sans cho đoạn đó."
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "version": "Phiên bản",
+    "current": "Phiên bản đang dùng: {{version}}",
+    "check": "Kiểm tra bản mới",
+    "checking": "Đang kiểm tra bản mới…",
+    "upToDate": "Bạn đang dùng bản mới nhất.",
+    "available": "Có bản mới: {{version}}.",
+    "upgrade": "Nâng cấp lên {{version}}",
+    "downloading": "Đang tải bản {{version}}: {{percent}}%",
+    "downloadingLabel": "Tiến trình tải bản mới",
+    "ready": "Đã tải xong bản {{version}}. Khởi động lại để cài đặt.",
+    "restartInstall": "Khởi động lại và cài đặt",
+    "unsupported": "Bản chạy từ mã nguồn không tự cập nhật.",
+    "error": "Không kiểm tra được bản mới: {{message}}",
+    "openDownloadPage": "Mở trang tải về",
+    "macNote": "Trên macOS, bấm nâng cấp sẽ mở trang tải về: tải gói mới rồi kéo vào thư mục Ứng dụng để thay bản cũ. Dữ liệu của bạn được giữ nguyên.",
+    "webNote": "Bản web luôn là bản mới nhất mỗi khi bạn tải lại trang. Trình duyệt có thể cần tải lại hai lần để nhận bản cập nhật.",
+    "data": "Dữ liệu",
+    "dataHint": "Thư viện nằm trong thư mục này (SQLite và tệp thật). Sao lưu bằng cách chép cả thư mục.",
+    "openFolder": "Mở thư mục dữ liệu"
   }
 }

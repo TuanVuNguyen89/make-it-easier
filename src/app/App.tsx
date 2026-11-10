@@ -7,6 +7,7 @@ import { LibraryPage, ImagesPage } from '@/features/library/LibraryPage'
 import { ToolsPage } from '@/features/tools/ToolsPage'
 import { ToolPage } from '@/features/tools/ToolPage'
 import { ConvertHub } from '@/features/tools/ConvertHub'
+import { SettingsPage } from '@/features/settings/SettingsPage'
 
 export function App() {
   return (
@@ -20,6 +21,7 @@ export function App() {
             <Route path="tools" element={<ToolsPage kind="pdf" />} />
             <Route path="tools/images" element={<ToolsPage kind="image" />} />
             <Route path="tools/convert" element={<ConvertHub />} />
+            <Route path="settings" element={<SettingsPage />} />
             <Route path="tools/:toolId" element={<ToolPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>

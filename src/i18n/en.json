@@ -18,7 +18,8 @@
     "images": "Images",
     "imagesAll": "All images",
     "pdfTools": "PDF tools",
-    "imageTools": "Image tools"
+    "imageTools": "Image tools",
+    "settings": "Settings"
   },
   "library": {
     "title": "Documents",
@@ -353,7 +354,8 @@
     "savedAll": "All saved",
     "sizeDelta": "Size: {{before}} → {{after}} ({{percent}}% smaller)",
     "paintFirst": "Paint over the area to erase first.",
-    "addSomething": "Add at least one item to the page first."
+    "addSomething": "Add at least one item to the page first.",
+    "unreadable": "Could not read: {{files}}. Close any app that has the file open, or copy it to a local folder and try again."
   },
   "errors": {
     "encrypted": "One file is password protected. Unlock it first, then try again.",
@@ -495,7 +497,9 @@
       "hint": "The first use downloads language data (~10 MB) and keeps it for offline use. Pick the right language for better accuracy.",
       "vieEng": "Vietnamese and English",
       "vie": "Vietnamese",
-      "eng": "English"
+      "eng": "English",
+      "deuEng": "German and English",
+      "deu": "German"
     }
   },
   "editor": {
@@ -611,5 +615,27 @@
   "warnings": {
     "edit-cover-only": "In some places the original text could not be removed (for example text inside a pre-assembled block, so the new text is only placed on top). The old text is no longer visible but is still in the file and can be copied; use Redact if it must be removed completely.",
     "font-fallback": "The font you picked lacks some characters, so DejaVu Sans was used for that text."
+  },
+  "settings": {
+    "title": "Settings",
+    "version": "Version",
+    "current": "Current version: {{version}}",
+    "check": "Check for updates",
+    "checking": "Checking for updates…",
+    "upToDate": "You are on the latest version.",
+    "available": "A new version is available: {{version}}.",
+    "upgrade": "Upgrade to {{version}}",
+    "downloading": "Downloading {{version}}: {{percent}}%",
+    "downloadingLabel": "Update download progress",
+    "ready": "Version {{version}} is downloaded. Restart to install.",
+    "restartInstall": "Restart and install",
+    "unsupported": "A build run from source does not update itself.",
+    "error": "Could not check for updates: {{message}}",
+    "openDownloadPage": "Open download page",
+    "macNote": "On macOS, Upgrade opens the download page: download the new package and drag it into Applications to replace the old one. Your data is kept.",
+    "webNote": "The web version is always the latest each time you reload. The browser may need two reloads to pick up an update.",
+    "data": "Data",
+    "dataHint": "Your library lives in this folder (SQLite and real files). Back it up by copying the whole folder.",
+    "openFolder": "Open data folder"
   }
 }

@@ -51,9 +51,9 @@ import { setOcrBackend } from '@/lib/ocr'
 
 // OCR trong test: gom dữ liệu ngôn ngữ vào một thư mục (tesseract.js nhận một langPath duy nhất).
 const tessData = 'node_modules/.cache/tessdata-test'
-if (!existsSync(`${tessData}/vie.traineddata.gz`)) {
+if (!existsSync(`${tessData}/vie.traineddata.gz`) || !existsSync(`${tessData}/deu.traineddata.gz`)) {
   mkdirSync(tessData, { recursive: true })
-  for (const l of ['eng', 'vie']) cpSync(`node_modules/@tesseract.js-data/${l}/4.0.0_best_int/${l}.traineddata.gz`, `${tessData}/${l}.traineddata.gz`)
+  for (const l of ['eng', 'vie', 'deu']) cpSync(`node_modules/@tesseract.js-data/${l}/4.0.0_best_int/${l}.traineddata.gz`, `${tessData}/${l}.traineddata.gz`)
 }
 setOcrBackend({ options: () => ({ langPath: tessData, gzip: true, cacheMethod: 'none' }) })
 

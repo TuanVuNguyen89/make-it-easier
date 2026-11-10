@@ -1,5 +1,6 @@
 import { mkdtempSync, existsSync, readdirSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
+import { createServer } from 'node:http'
 import { join, resolve } from 'node:path'
 import { _electron as electron, expect, test, type ElectronApplication } from '@playwright/test'
 
@@ -47,6 +48,38 @@ test('app máy tính: dữ liệu lưu trong SQLite + tệp thật, còn nguyên
     await expect(page.getByRole('button', { name: /Tách PDF/ }).first()).toBeEnabled()
   } finally {
     await app?.close().catch(() => {})
+    rmSync(userData, { recursive: true, force: true })
+  }
+})
+
+test('cài đặt: hiện phiên bản, thư mục dữ liệu; kiểm tra bản mới thấy bản cao hơn từ máy chủ cập nhật và báo nâng cấp', async () => {
+  const userData = mkdtempSync(join(tmpdir(), 'mie-e2e-'))
+  const feed = createServer((req, res) => {
+    // electron-updater đọc latest*.yml (tùy nền tảng); trả về bản 9.9.9
+    if (/latest[^/]*\.yml$/.test((req.url ?? '').split('?')[0]!)) {
+      res.setHeader('content-type', 'text/yaml')
+      res.end(`version: 9.9.9\nfiles:\n  - url: make-it-easier-9.9.9.bin\n    sha512: ${'A'.repeat(86)}==\n    size: 100\npath: make-it-easier-9.9.9.bin\nsha512: ${'A'.repeat(86)}==\nreleaseDate: '2026-11-10T00:00:00.000Z'\n`)
+    } else {
+      res.statusCode = 404
+      res.end()
+    }
+  })
+  await new Promise<void>((r) => feed.listen(0, '127.0.0.1', r))
+  const url = `http://127.0.0.1:${(feed.address() as { port: number }).port}`
+  let app: ElectronApplication | undefined
+  try {
+    app = await electron.launch({ args: [resolve('.')], env: { ...process.env, MIE_USER_DATA: userData, MIE_UPDATE_URL: url, ELECTRON_DISABLE_SECURITY_WARNINGS: '1' } })
+    const page = await app.firstWindow()
+    await page.waitForLoadState('domcontentloaded')
+    await page.goto('app://local/settings')
+    await expect(page.getByText(/Phiên bản đang dùng: \d+\.\d+\.\d+/)).toBeVisible()
+    await expect(page.getByText(userData)).toBeVisible()
+    await page.getByRole('button', { name: 'Kiểm tra bản mới' }).click()
+    await expect(page.getByText('Có bản mới: 9.9.9.')).toBeVisible()
+    await expect(page.getByRole('button', { name: /Nâng cấp lên 9\.9\.9|Mở trang tải về/ })).toBeVisible()
+  } finally {
+    await app?.close().catch(() => {})
+    feed.close()
     rmSync(userData, { recursive: true, force: true })
   }
 })

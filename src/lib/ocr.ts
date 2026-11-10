@@ -35,8 +35,8 @@ export function setOcrBackend(b: OcrBackend): void {
   backend = b
 }
 
-export type OcrLanguage = 'vie+eng' | 'vie' | 'eng'
-export const OCR_LANGUAGES: OcrLanguage[] = ['vie+eng', 'vie', 'eng']
+export type OcrLanguage = 'vie+eng' | 'vie' | 'eng' | 'deu+eng' | 'deu'
+export const OCR_LANGUAGES: OcrLanguage[] = ['vie+eng', 'vie', 'eng', 'deu+eng', 'deu']
 
 interface RawWord { text: string; confidence: number; bbox: { x0: number; y0: number; x1: number; y1: number } }
 interface RawBlocks { blocks?: { paragraphs: { lines: { words: RawWord[] }[] }[] }[] | null }

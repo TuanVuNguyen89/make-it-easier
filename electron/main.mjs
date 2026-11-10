@@ -3,6 +3,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { dirname, join, normalize, sep } from 'node:path'
 import { existsSync, statSync } from 'node:fs'
 import { openStore, runCommand } from './store.mjs'
+import { setupUpdater } from './updater.mjs'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const DEV_URL = process.env.MIE_DEV_URL // ví dụ http://127.0.0.1:5173 khi chạy `npm run desktop:dev`
@@ -45,6 +46,9 @@ app.whenReady().then(() => {
   if (!app.requestSingleInstanceLock()) return app.quit()
   store = openStore(app.getPath('userData'))
   ipcMain.handle('store', (_e, method, args) => runCommand(store, method, Array.isArray(args) ? args : []))
+  ipcMain.handle('app:info', () => ({ version: app.getVersion(), dataDir: app.getPath('userData'), packaged: app.isPackaged, platform: process.platform }))
+  ipcMain.handle('app:openDataDir', () => shell.openPath(app.getPath('userData')))
+  setupUpdater(() => win)
 
   protocol.handle('app', (request) => {
     const { pathname } = new URL(request.url)

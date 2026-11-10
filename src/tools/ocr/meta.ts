@@ -23,6 +23,8 @@ export const meta: ToolMeta = {
         { value: 'vie+eng', labelKey: 'params.ocr.vieEng' },
         { value: 'vie', labelKey: 'params.ocr.vie' },
         { value: 'eng', labelKey: 'params.ocr.eng' },
+        { value: 'deu+eng', labelKey: 'params.ocr.deuEng' },
+        { value: 'deu', labelKey: 'params.ocr.deu' },
       ],
     },
   ],

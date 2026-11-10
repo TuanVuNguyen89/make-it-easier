@@ -148,7 +148,7 @@ function Library({ view, kind }: { view: LibraryView; kind: Kind }) {
     }
     for (const f of res.failed) {
       const reason = t(f.reason === 'invalid-pdf' ? 'library.reasonInvalidPdf' : f.reason === 'quota' ? 'library.reasonQuota' : 'library.reasonUnknown')
-      out.push({ kind: 'error', text: t('library.uploadFailed', { name: f.name, reason }) })
+      out.push({ kind: 'error', text: t('library.uploadFailed', { name: f.name, reason }) + (f.reason === 'unknown' && f.detail ? ` (${f.detail})` : '') })
     }
     setMessages(out)
     reload()

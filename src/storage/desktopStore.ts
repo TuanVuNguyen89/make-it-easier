@@ -1,8 +1,25 @@
 import type { LibraryStore } from './db'
 
 /** Cầu nối do `electron/preload.cjs` đưa vào; không có khi chạy trên web. */
+export interface UpdateStatus {
+  state: 'idle' | 'unsupported' | 'checking' | 'none' | 'available' | 'downloading' | 'ready' | 'error'
+  version?: string
+  percent?: number
+  error?: string
+}
+
 export interface DesktopBridge {
   platform: string
+  info?(): Promise<{ version: string; dataDir: string; packaged: boolean; platform: string }>
+  openDataDir?(): Promise<string>
+  update?: {
+    status(): Promise<UpdateStatus>
+    check(): Promise<void>
+    download(): Promise<void>
+    install(): Promise<void>
+    openReleases(): Promise<void>
+    onStatus(cb: (s: UpdateStatus) => void): () => void
+  }
   store(method: string, args: unknown[]): Promise<{ ok: true; value: unknown } | { ok: false; name: string; message: string }>
 }
 
