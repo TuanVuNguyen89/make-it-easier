@@ -92,7 +92,7 @@ function ToolForm({ tool }: { tool: ToolMeta }) {
   const [progress, setProgress] = useState(0)
   const [outputs, setOutputs] = useState<ToolOutput[]>([])
   const [saved, setSaved] = useState<Set<number>>(new Set())
-  const [message, setMessage] = useState<{ kind: 'error' | 'info'; text: string; link?: { to: string; label: string } } | null>(null)
+  const [message, setMessage] = useState<{ kind: 'error' | 'info'; text: string; link?: { to: string; label: string }; detail?: string } | null>(null)
   const [pickerOpen, setPickerOpen] = useState(false)
   const [dragging, setDragging] = useState(false)
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
@@ -194,7 +194,10 @@ function ToolForm({ tool }: { tool: ToolMeta }) {
           : code === 'no-text-layer'
             ? { to: '/tools/ocr', label: t('tools.ocr.name') } // PDF quét: cần OCR trước
             : undefined
-      setMessage({ kind: 'error', text: t(`errors.${code}`), link })
+      // Lỗi lạ: giữ chi tiết kỹ thuật (dòng đầu của thông điệp) để người dùng/nhà phát triển biết nguyên nhân thay vì chỉ thấy thông báo chung.
+      const detail = e instanceof ToolError ? undefined : (e instanceof Error ? e.message : String(e)).split('\n')[0]?.slice(0, 300)
+      if (detail) console.error('[tool error]', e)
+      setMessage({ kind: 'error', text: t(`errors.${code}`), link, detail })
     }
   }
 
@@ -482,6 +485,7 @@ function ToolForm({ tool }: { tool: ToolMeta }) {
         {message && (
           <p className={`notice ${message.kind === 'error' ? 'notice-error' : ''}`} role={message.kind === 'error' ? 'alert' : undefined}>
             {message.text}
+            {message.detail && <span className="mt-1 block break-words text-sm opacity-80">{t('errors.detail')}: {message.detail}</span>}
             {message.link && (
               <>
                 {' '}

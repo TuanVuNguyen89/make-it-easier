@@ -54,13 +54,13 @@ export interface Line {
 }
 
 /** Gom các đoạn chữ thành dòng (cùng đường cơ sở), sắp từ trên xuống, trong dòng từ trái sang phải. */
-export function toLines(runs: TextRun[]): Line[] {
+export function toLines(runs: TextRun[], tolerance = 0.4): Line[] {
   const sorted = [...runs].sort((a, b) => a.y - b.y || a.x - b.x)
   const lines: TextRun[][] = []
   for (const r of sorted) {
     const last = lines.at(-1)
     const ref = last?.[0]
-    if (last && ref && Math.abs(r.y - ref.y) <= Math.max(2, Math.min(r.size, ref.size) * 0.4)) last.push(r)
+    if (last && ref && Math.abs(r.y - ref.y) <= Math.max(2, Math.min(r.size, ref.size) * tolerance)) last.push(r)
     else lines.push([r])
   }
   return lines.map((rs) => {

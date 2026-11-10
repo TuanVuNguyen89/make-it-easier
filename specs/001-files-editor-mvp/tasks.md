@@ -112,6 +112,11 @@
 - [x] T071 [US7] OCR tiếng Đức (`deu`, `deu+eng`): dữ liệu tự host, tùy chọn, bản dịch + test nhận dạng ä ö ü ß
 - [x] T072 Trang Cài đặt: phiên bản, kiểm tra/nâng cấp bản mới trong app (electron-updater qua GitHub Releases; macOS mở trang tải), thư mục dữ liệu + test với máy chủ cập nhật giả
 - [x] T073 Tải tệp từ máy: báo lỗi đọc tệp rõ ràng, app máy tính bỏ phép đo quota của trình duyệt, tên gói không có dấu cách
+- [x] T074 [US8] PDF → DOCX giữ định dạng (hướng B): đọc đường kẻ/ô màu/ảnh từ luồng nội dung (`pdfGraphics`), giải ảnh (`pdfImages`), phân tích bố cục (`pdfRichLayout`: đoạn, căn lề, danh sách, bảng có và không đường kẻ, cột, đường kẻ ngang), ghi DOCX (`docxRich`) + test đơn vị, giải ảnh, và so vị trí với bản LibreOffice in lại
+- [x] T075 [US8] Sửa lỗi ảnh đè lên chữ khi PDF → DOCX từ PDF đã OCR: nhận ra lớp chữ vô hình (Tr 3), bỏ ảnh quét có chữ OCR, làm đều cỡ chữ, khoảng trắng đơn, dấu đầu dòng OCR đọc sai + test
+- [x] T076 [US7/US8] Sửa lỗi nặng khi OCR trang có hình rồi PDF → DOCX: lọc nhiễu OCR theo độ tin cậy và láng giềng, đường cơ sở chung cho dòng, bỏ nhầm bảng/ chữ căn đều, tách vùng chữ bằng XY-cut với khung chữ cho chú thích cạnh hình + test
+- [x] T077 [US8] Giữ lại hình minh họa trong trang quét đã OCR (`findFigures`: điểm ảnh khác nền trừ khung chữ OCR, cắt bỏ chú thích dính mép) + khôi phục chữ bị rác đuôi chú thích (`keepLineWords`) + test
+- [x] T078 [US7] Sửa lỗi OCR PDF nhiều trang báo "Đã xảy ra lỗi khi xử lý" trong trình duyệt: bộ lọc ảnh pdf.js dùng `document` (worker không có) với mặt nạ độ sáng; thêm `NoFilterFactory`; thông báo lỗi lạ giờ kèm chi tiết kỹ thuật + test E2E
 
 ### Hoàn thiện
 - [x] T058 Cập nhật README, a11y/responsive/offline cho các trang mới, chạy `npm run test:all`

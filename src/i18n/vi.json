@@ -304,7 +304,7 @@
     },
     "pdf-to-docx": {
       "name": "PDF sang Word",
-      "desc": "Chuyển nội dung PDF sang tài liệu Word có thể chỉnh sửa (tiêu đề, đoạn văn, danh sách).",
+      "desc": "Chuyển PDF sang tài liệu Word chỉnh sửa được, giữ phông, cỡ chữ, màu, căn lề, danh sách, bảng, cột và ảnh.",
       "action": "Chuyển sang Word"
     },
     "pdf-to-xlsx": {
@@ -373,7 +373,8 @@
     "invalid-image": "Một tệp ảnh không đọc được hoặc không đúng định dạng JPG/PNG. Hãy bỏ tệp đó và thử lại.",
     "no-text": "Không nhận ra chữ nào trong tệp, nên không tạo tệp mới. Hãy thử ảnh rõ nét hơn hoặc chọn đúng ngôn ngữ.",
     "invalid-office": "Tệp Office bị hỏng hoặc không đúng định dạng. Hãy mở thử bằng ứng dụng gốc rồi lưu lại.",
-    "no-text-layer": "PDF này không có lớp chữ (có thể là bản quét) nên không có gì để chuyển. Hãy dùng công cụ Nhận dạng chữ (OCR) trước."
+    "no-text-layer": "PDF này không có lớp chữ (có thể là bản quét) nên không có gì để chuyển. Hãy dùng công cụ Nhận dạng chữ (OCR) trước.",
+    "detail": "Chi tiết kỹ thuật"
   },
   "common": {
     "home": "Về trang chủ"
@@ -614,7 +615,9 @@
   },
   "warnings": {
     "edit-cover-only": "Ở một số chỗ không xóa được chữ gốc (ví dụ chữ nằm trong khối ghép sẵn nên chỉ phủ chữ mới lên). Chữ cũ không còn nhìn thấy nhưng vẫn còn trong tệp và có thể sao chép; dùng công cụ Biên tập nếu cần xóa hẳn.",
-    "font-fallback": "Phông bạn chọn thiếu một số ký tự nên đã dùng DejaVu Sans cho đoạn đó."
+    "font-fallback": "Phông bạn chọn thiếu một số ký tự nên đã dùng DejaVu Sans cho đoạn đó.",
+    "docx-images-skipped": "Một số ảnh trong PDF dùng kiểu mã hóa chưa hỗ trợ nên không đưa được vào tệp Word.",
+    "docx-scan-image-removed": "Trang quét đã có lớp chữ OCR: ảnh quét được thay bằng chữ nhận dạng để sửa được trong Word; hình minh họa phát hiện được trong ảnh quét vẫn được giữ dưới dạng ảnh đặt đúng chỗ. Nên đối chiếu lại chữ với bản gốc."
   },
   "settings": {
     "title": "Cài đặt",

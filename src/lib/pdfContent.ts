@@ -21,6 +21,8 @@ export interface ShowOp {
   font: string | null
   /** Màu tô chữ (RGB 0–1) nếu là màu thiết bị (g, rg, k, hoặc sc/scn số thuần); null nếu không xác định (mẫu tô, không gian màu lạ). */
   fill: [number, number, number] | null
+  /** Chế độ vẽ chữ 3 (Tr 3): chữ vô hình, thường là lớp chữ của OCR đặt trên ảnh quét. */
+  invisible: boolean
 }
 
 const WS = new Set([0, 9, 10, 12, 13, 32])
@@ -28,7 +30,7 @@ const DELIM = new Set('()<>[]{}/%'.split('').map((c) => c.charCodeAt(0)))
 const isWs = (b: number) => WS.has(b)
 const isDelim = (b: number) => DELIM.has(b)
 
-const mul = (a: Mat, b: Mat): Mat => [
+export const mul = (a: Mat, b: Mat): Mat => [
   a[0] * b[0] + a[1] * b[2],
   a[0] * b[1] + a[1] * b[3],
   a[2] * b[0] + a[3] * b[2],
@@ -36,10 +38,10 @@ const mul = (a: Mat, b: Mat): Mat => [
   a[4] * b[0] + a[5] * b[2] + b[4],
   a[4] * b[1] + a[5] * b[3] + b[5],
 ]
-const IDENT: Mat = [1, 0, 0, 1, 0, 0]
-const cmyk = ([c, m, y, k]: number[]): [number, number, number] => [(1 - c!) * (1 - k!), (1 - m!) * (1 - k!), (1 - y!) * (1 - k!)]
+export const IDENT: Mat = [1, 0, 0, 1, 0, 0]
+export const cmyk = ([c, m, y, k]: number[]): [number, number, number] => [(1 - c!) * (1 - k!), (1 - m!) * (1 - k!), (1 - y!) * (1 - k!)]
 
-interface Tok {
+export interface Tok {
   kind: 'op' | 'num' | 'name' | 'other'
   start: number
   end: number
@@ -75,7 +77,7 @@ function skipLiteral(b: Uint8Array, i: number): number {
   return i
 }
 
-function tokenize(b: Uint8Array): Tok[] {
+export function tokenize(b: Uint8Array): Tok[] {
   const toks: Tok[] = []
   let i = 0
   while (i < b.length) {
@@ -117,7 +119,8 @@ export function findShowOps(bytes: Uint8Array): ShowOp[] {
   let font: string | null = null
   let fill: [number, number, number] | null = [0, 0, 0]
   // q/Q lưu và khôi phục cả CTM, phông và màu tô (đều là một phần trạng thái đồ họa).
-  const stack: { ctm: Mat; font: string | null; fill: [number, number, number] | null }[] = []
+  const stack: { ctm: Mat; font: string | null; fill: [number, number, number] | null; mode: number }[] = []
+  let mode = 0
   let tm: Mat = IDENT
   let tlm: Mat = IDENT
   let leading = 0
@@ -132,7 +135,7 @@ export function findShowOps(bytes: Uint8Array): ShowOp[] {
   }
   const record = (op: ShowOp['op'], first: Tok, last: Tok) => {
     const m = mul(tm, ctm)
-    out.push({ op, start: first.start, end: last.end, x: m[4], y: m[5], reliable, font, fill })
+    out.push({ op, start: first.start, end: last.end, x: m[4], y: m[5], reliable, font, fill, invisible: mode === 3 })
     reliable = false // vị trí chữ kế tiếp phụ thuộc bề rộng chữ vừa vẽ
   }
 
@@ -140,12 +143,13 @@ export function findShowOps(bytes: Uint8Array): ShowOp[] {
     if (t.kind !== 'op') { operands.push(t); continue }
     const n = nums()
     switch (t.text) {
-      case 'q': stack.push({ ctm, font, fill }); break
+      case 'q': stack.push({ ctm, font, fill, mode }); break
       case 'Q': {
         const st = stack.pop()
-        if (st) ({ ctm, font, fill } = st)
+        if (st) ({ ctm, font, fill, mode } = st)
         break
       }
+      case 'Tr': if (n.length) mode = n.at(-1)!; break
       case 'Tf': font = operands.find((o) => o.kind === 'name')?.text ?? font; break
       case 'g': if (n.length >= 1) fill = [n.at(-1)!, n.at(-1)!, n.at(-1)!]; break
       case 'rg': if (n.length >= 3) fill = [n.at(-3)!, n.at(-2)!, n.at(-1)!]; break

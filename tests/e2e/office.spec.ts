@@ -66,7 +66,7 @@ test('PDF sang Word, Excel, PowerPoint trong trình duyệt (pptxgenjs chạy tr
   const body = strFromU8(docx['word/document.xml']!)
   expect(body).toContain('Sample - page 1/10')
   expect(body).toContain('Sample - page 10/10')
-  expect((body.match(/w:type="page"/g) ?? []).length).toBe(9) // 10 trang → 9 ngắt trang
+  expect((body.match(/<w:sectPr>/g) ?? []).length).toBe(10) // mỗi trang PDF là một section (cỡ trang riêng, sang trang mới)
 
   await page.goto('/tools/pdf-to-xlsx')
   await pick(page, ['sample-1p.pdf'])

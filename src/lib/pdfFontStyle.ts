@@ -63,6 +63,8 @@ export interface OpStyle {
   y: number
   font: FontStyle | null
   fill: [number, number, number] | null
+  /** Chữ vô hình (Tr 3), ví dụ lớp chữ OCR. */
+  invisible: boolean
 }
 
 /** Phông và màu của mọi lệnh vẽ chữ trên từng trang (chỉ nội dung trang, không đi vào Form XObject). */
@@ -78,7 +80,7 @@ export function pageOpStyles(doc: PDFDocument, pageIndex: number): OpStyle[] {
       if (!cache.has(op.font)) cache.set(op.font, fontStyleOf(doc, pageIndex, op.font))
       font = cache.get(op.font) ?? null
     }
-    return { x: v.x, y: v.y, font, fill: op.fill }
+    return { x: v.x, y: v.y, font, fill: op.fill, invisible: op.invisible }
   })
 }
 

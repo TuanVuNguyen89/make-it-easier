@@ -108,3 +108,11 @@ describe('theo dõi phông và màu tô', () => {
     expect(findShowOps(enc('BT /F#201 12 Tf 1 0 0 1 5 5 Tm (a) Tj ET'))[0]!.font).toBe('F 1')
   })
 })
+
+describe('findShowOps: chữ vô hình (Tr 3)', () => {
+  it('đánh dấu chữ ở chế độ vẽ 3 và khôi phục sau Q', () => {
+    const enc = (s: string) => new TextEncoder().encode(s)
+    const ops = findShowOps(enc('BT /F1 10 Tf 10 20 Td (a) Tj ET q 3 Tr BT 10 40 Td (b) Tj ET Q BT 10 60 Td (c) Tj ET q BT 3 Tr 10 80 Td (d) Tj ET'))
+    expect(ops.map((o) => o.invisible)).toEqual([false, true, false, true])
+  })
+})

@@ -17,7 +17,7 @@ export function addInvisibleText(page: PDFPage, words: OcrWord[], pxPerPt: numbe
     if (!(w1 > 0) || !(widthPt > 0) || !(heightPt > 0)) continue
     // Chọn cỡ chữ để chiều rộng chữ khớp khung từ (vùng chọn trùng với chữ trên ảnh), giới hạn theo chiều cao khung.
     const size = Math.min(Math.max(widthPt / w1, heightPt * 0.5), heightPt * 1.4)
-    const baseline = w.y1 / pxPerPt - heightPt * 0.2
+    const baseline = w.baseline !== undefined ? w.baseline / pxPerPt : w.y1 / pxPerPt - heightPt * 0.2
     const p = f.toPage(x, f.vh - baseline)
     page.pushOperators(pushGraphicsState(), setTextRenderingMode(TextRenderingMode.Invisible))
     page.drawText(w.text, { x: p.x, y: p.y, size, font, rotate: degrees(f.rotation) })

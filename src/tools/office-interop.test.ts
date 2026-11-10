@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import fontkit from '@pdf-lib/fontkit'
+import { strFromU8, unzipSync } from 'fflate'
 import { PDFDocument, rgb } from 'pdf-lib'
 import { applyAnnotationsDetailed, type Annotation } from '@/lib/annotations'
 import { extractPdfText } from '@/lib/pdfText'
@@ -54,8 +55,10 @@ describe.skipIf(!SOFFICE)('tệp xuất ra mở được bằng LibreOffice th�
     const pages = await pageTexts(back)
     expect(pages.length).toBe(2) // ngắt trang được LibreOffice tôn trọng
     const text = pages.map((p) => p.map((i) => i.str).join(' ')).join(' | ')
-    for (const s of ['Báo cáo thử nghiệm', 'Đoạn mở đầu với Nguyễn Văn An.', 'Mục một', 'Mục hai', 'Trang hai có nội dung']) expect(text, s).toContain(s)
-    // tiêu đề là Heading nên chữ to hơn thân bài trong bản LibreOffice in ra
+    for (const s of ['Báo cáo thử nghiệm', 'Đoạn mở đầu với Nguyễn Văn An.', 'một', 'hai', 'Trang hai có nội dung']) expect(text, s).toContain(s)
+    // Chữ trong tệp DOCX còn nguyên (LibreOffice tách dấu của "ụ" khi nhúng phông DejaVu nên không so chữ này ở bản in lại).
+    expect(strFromU8(unzipSync(out!.data)['word/document.xml']!)).toContain('Mục một')
+    // tiêu đề giữ cỡ chữ gốc (26 so với 12) trong bản LibreOffice in ra
     const heading = pages[0]!.find((i) => i.str.includes('Báo cáo thử nghiệm'))!
     const body = pages[0]!.find((i) => i.str.includes('Đoạn mở đầu'))!
     expect(heading.size).toBeGreaterThan(body.size * 1.4)

@@ -1,15 +1,22 @@
-import { writeDocx } from '@/lib/office/docxWrite'
-import { extractPdfText } from '@/lib/pdfText'
-import { pagesToBlocks } from '@/lib/pdfStructure'
+import { writeRichDocx } from '@/lib/office/docxRich'
+import { pdfToRichPages } from '@/lib/pdfToRich'
 import { ToolError, type RunFn } from '../types'
 
 /**
- * PDF → DOCX theo nội dung: tiêu đề (theo cỡ chữ), đoạn văn (các dòng liền nhau gộp lại), danh sách, ngắt trang.
- * Không giữ nguyên bố cục, phông chữ hay ảnh. PDF quét (không có lớp chữ) cần OCR trước.
+ * PDF → DOCX giữ định dạng: phông, cỡ, màu, đậm/nghiêng, gạch chân, căn lề, thụt dòng và khoảng cách, danh sách, bảng
+ * (có đường kẻ hoặc cột thẳng hàng), cột chữ, đường kẻ ngang và ảnh đặt đúng chỗ trên từng trang. Đoạn văn được gộp lại để
+ * sửa được trong Word. Chỉ là xấp xỉ (phông trong PDF thường không đưa lại được nên Word dùng phông tương đương);
+ * PDF quét (không có lớp chữ) cần OCR trước.
  */
 export const run: RunFn<Record<string, never>> = async (inputs, _options, ctx) => {
-  const pages = await extractPdfText(inputs[0]!, ctx.signal, (d, t) => ctx.progress(0.9 * (d / t)))
-  const blocks = pagesToBlocks(pages)
-  if (!blocks.some((b) => b.type !== 'pageBreak')) throw new ToolError('no-text-layer', 'PDF has no text layer')
-  return [{ name: 'document.docx', mime: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', data: writeDocx(blocks) }]
+  const r = await pdfToRichPages(inputs[0]!, ctx.signal, (f) => ctx.progress(0.9 * f))
+  if (!r.hasText) throw new ToolError('no-text-layer', 'PDF has no text layer')
+  return [
+    {
+      name: 'document.docx',
+      mime: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      data: writeRichDocx(r.pages),
+      warnings: r.skippedImages || r.scanImagesRemoved ? [...(r.skippedImages ? ['docx-images-skipped'] : []), ...(r.scanImagesRemoved ? ['docx-scan-image-removed'] : [])] : undefined,
+    },
+  ]
 }

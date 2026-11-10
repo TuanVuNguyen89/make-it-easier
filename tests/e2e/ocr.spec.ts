@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { GlobalFonts, createCanvas } from '@napi-rs/canvas'
 import { expect, test, type Page } from '@playwright/test'
-import { PDFDocument } from 'pdf-lib'
+import { PDFDocument, PDFName } from 'pdf-lib'
 import { pageTexts } from '../../src/tools/testUtils'
 
 GlobalFonts.registerFromPath('node_modules/dejavu-fonts-ttf/ttf/DejaVuSans.ttf', 'DejaVu Sans')
@@ -48,4 +48,28 @@ test('OCR trang trắng: báo không nhận ra chữ và không tạo tệp', as
   await page.getByRole('button', { name: 'Nhận dạng chữ', exact: true }).click()
   await expect(page.getByText('Không nhận ra chữ nào')).toBeVisible({ timeout: 90_000 })
   await expect(page.getByRole('heading', { name: 'Kết quả' })).toHaveCount(0)
+})
+
+test('OCR PDF có mặt nạ độ sáng (ExtGState SMask Luminosity, như trang Wikipedia): không lỗi trong worker, vẫn nhận ra chữ', async ({ page }) => {
+  test.setTimeout(120_000)
+  // Trang quét (ảnh chữ) cộng một hình tô qua mặt nạ độ sáng: pdf.js cần bộ lọc ảnh (trước đây dùng `document`, worker không có).
+  const doc = await PDFDocument.create()
+  const png = await doc.embedPng(new Uint8Array(textPng(['Hello World', 'Invoice 2024']).buffer))
+  const p = doc.addPage([500, 400])
+  p.drawImage(png, { x: 0, y: 260, width: 500, height: 126 }) // đúng tỉ lệ ảnh 1000×252, chữ ở phía trên; hình tô nằm ở vùng trống phía dưới
+  const ctx = doc.context
+  const mask = ctx.register(ctx.stream('0.5 g 0 0 100 100 re f', { Type: 'XObject', Subtype: 'Form', BBox: [0, 0, 100, 100], Group: { S: 'Transparency', CS: 'DeviceGray' } }))
+  p.node.Resources()!.set(PDFName.of('ExtGState'), ctx.obj({ GS1: { Type: 'ExtGState', SMask: { Type: 'Mask', S: 'Luminosity', G: mask } } }))
+  p.node.addContentStream(ctx.register(ctx.stream('q /GS1 gs 1 0 0 rg 350 20 100 100 re f Q')))
+  const bytes = Buffer.from(await doc.save())
+  await page.goto('/tools/ocr')
+  await page.locator('input[type=file]').setInputFiles([{ name: 'smask.pdf', mimeType: 'application/pdf', buffer: bytes }])
+  await page.getByLabel('Ngôn ngữ trong tài liệu').selectOption('eng')
+  await page.getByRole('button', { name: 'Nhận dạng chữ', exact: true }).click()
+  await expect(page.getByRole('button', { name: 'Tải về' }).first()).toBeVisible({ timeout: 90_000 })
+  await expect(page.getByRole('alert')).toHaveCount(0)
+  const out = await downloadOf(page)
+  const text = (await pageTexts(new Uint8Array(out)))[0]!.map((i) => i.str.toLowerCase()).join(' ')
+  expect(text).toContain('hello')
+  expect(text).toContain('invoice')
 })

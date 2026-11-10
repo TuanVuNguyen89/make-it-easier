@@ -42,6 +42,30 @@ class OffscreenCanvasFactory {
   }
 }
 
+/**
+ * Bộ lọc ảnh của pdf.js mặc định dựng bộ lọc SVG trong `document` (dùng cho mặt nạ độ sáng của ảnh, chế độ tương phản cao...); worker
+ * không có `document` nên báo "Cannot read properties of undefined (reading 'URL')" với PDF có ảnh dùng SMask (ví dụ trang Wikipedia).
+ * Bộ lọc rỗng trả "none": trang vẫn vẽ được, chỉ không áp bộ lọc SVG.
+ */
+class NoFilterFactory {
+  addFilter() {
+    return 'none'
+  }
+  addHCMFilter() {
+    return 'none'
+  }
+  addAlphaFilter() {
+    return 'none'
+  }
+  addLuminosityFilter() {
+    return 'none'
+  }
+  addHighlightHCMFilter() {
+    return 'none'
+  }
+  destroy() {}
+}
+
 let pdfjsWorkerUrl = ''
 
 const browserBackend: RasterBackend = {
@@ -69,6 +93,7 @@ const browserBackend: RasterBackend = {
         // disableFontFace: vẽ chữ bằng đường nét, không cần document.fonts (không có trong worker).
         disableFontFace: true,
         CanvasFactory: OffscreenCanvasFactory,
+        FilterFactory: NoFilterFactory,
         isOffscreenCanvasSupported: true,
         // useWorkerFetch tường minh: giá trị mặc định được tính bằng document.baseURI nên sẽ lỗi trong worker.
         useWorkerFetch: true,

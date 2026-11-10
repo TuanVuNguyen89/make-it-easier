@@ -304,7 +304,7 @@
     },
     "pdf-to-docx": {
       "name": "PDF to Word",
-      "desc": "Turn PDF content into an editable Word document (headings, paragraphs, lists).",
+      "desc": "Turn a PDF into an editable Word document that keeps fonts, sizes, colors, alignment, lists, tables, columns and images.",
       "action": "Convert to Word"
     },
     "pdf-to-xlsx": {
@@ -373,7 +373,8 @@
     "invalid-image": "An image file couldn't be read or isn't a JPG/PNG. Remove it and try again.",
     "no-text": "No text was recognized in the file, so no new file was created. Try a sharper image or pick the right language.",
     "invalid-office": "The Office file is damaged or isn't in the expected format. Try opening it in the original app and saving it again.",
-    "no-text-layer": "This PDF has no text layer (it may be a scan), so there is nothing to convert. Use Text recognition (OCR) first."
+    "no-text-layer": "This PDF has no text layer (it may be a scan), so there is nothing to convert. Use Text recognition (OCR) first.",
+    "detail": "Technical detail"
   },
   "common": {
     "home": "Go to home"
@@ -614,7 +615,9 @@
   },
   "warnings": {
     "edit-cover-only": "In some places the original text could not be removed (for example text inside a pre-assembled block, so the new text is only placed on top). The old text is no longer visible but is still in the file and can be copied; use Redact if it must be removed completely.",
-    "font-fallback": "The font you picked lacks some characters, so DejaVu Sans was used for that text."
+    "font-fallback": "The font you picked lacks some characters, so DejaVu Sans was used for that text.",
+    "docx-images-skipped": "Some images in the PDF use an unsupported encoding and could not be placed in the Word file.",
+    "docx-scan-image-removed": "The scanned pages already have an OCR text layer: the scan image was replaced with the recognized text so it can be edited in Word; figures detected inside the scan are kept as images in place. Please check the text against the original."
   },
   "settings": {
     "title": "Settings",

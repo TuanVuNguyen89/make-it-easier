@@ -45,17 +45,25 @@ describe('pdf-to-docx', () => {
   it('dựng đúng cấu trúc: tiêu đề, đoạn gộp dòng, đoạn riêng, danh sách, ngắt trang, trang sau', async () => {
     const [out] = await toDocx([await report()], {}, ctx())
     expect(out!.name).toBe('document.docx')
-    const blocks = readDocx(out!.data)
-    const text = (b: (typeof blocks)[number]) => ('runs' in b ? b.runs.map((r) => r.text).join('') : '')
-    expect(blocks.map((b) => b.type)).toEqual(['heading', 'paragraph', 'paragraph', 'list', 'list', 'pageBreak', 'heading', 'paragraph'])
-    expect(text(blocks[0]!)).toBe('Tiêu đề tài liệu')
-    expect(blocks[0]).toMatchObject({ level: 1 })
-    expect(text(blocks[1]!)).toBe('Dòng đầu tiên của đoạn một tiếp tục dòng hai của đoạn một') // hai dòng liền nhau gộp một đoạn
-    expect(text(blocks[2]!)).toBe('Đoạn hai riêng biệt.')
-    expect(text(blocks[3]!)).toBe('Mục danh sách một')
-    expect(text(blocks[6]!)).toBe('Phần hai')
-    expect(blocks[6]).toMatchObject({ level: 2 }) // 20/12 nhỏ hơn 26/12
-    expect(text(blocks[7]!)).toContain('Nguyễn Văn An')
+    const xml = strFromU8(unzipSync(out!.data)['word/document.xml']!)
+    const paras = [...xml.matchAll(/<w:p>(.*?)<\/w:p>/g)].map((m) => m[1]!)
+    const textOf = (p: string) => [...p.matchAll(/<w:t[^>]*>([^<]*)<\/w:t>/g)].map((m) => m[1]).join('')
+    const withText = paras.filter((p) => textOf(p))
+    expect(withText.map(textOf)).toEqual([
+      'Tiêu đề tài liệu',
+      'Dòng đầu tiên của đoạn một tiếp tục dòng hai của đoạn một', // hai dòng liền nhau gộp một đoạn
+      'Đoạn hai riêng biệt.',
+      'Mục danh sách một',
+      'Mục danh sách hai',
+      'Phần hai',
+      expect.stringContaining('Nguyễn Văn An'),
+    ])
+    expect(withText[0]).toContain('<w:outlineLvl w:val="0"/>') // 26/12 là tiêu đề cấp 1
+    expect(withText[0]).toContain('<w:sz w:val="52"/>') // giữ cỡ chữ gốc 26pt
+    expect(withText[5]).toContain('<w:outlineLvl w:val="1"/>') // 20/12 nhỏ hơn: cấp 2
+    expect(withText.filter((p) => p.includes('<w:numPr>'))).toHaveLength(2) // hai mục danh sách
+    // mỗi trang PDF là một section: ngắt trang giữa hai trang, trang sau không bị gộp
+    expect(xml.match(/<w:sectPr>/g)).toHaveLength(2)
   })
 
   it('danh sách thật: gạch đầu dòng và đánh số (mỗi danh sách đánh số lại từ 1)', async () => {
